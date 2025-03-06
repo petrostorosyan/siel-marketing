@@ -1,0 +1,76 @@
+:root { 
+  --title-h1: 104px;
+  --title-h2: 40px;
+  --title-h3: 32px;
+  --title-h4: 16px;
+  --text-size: 16px;
+  --title-h1-height: 114px;
+  --title-h2-height: 48px;
+  --title-h3-height: 38px;
+}
+
+/* <---------------------------------  Media  --------------------------------> */
+
+@media screen and (max-width: 1600px) {
+  :root {
+    --title-h1: 96px;
+    --title-h1-height: 106px;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  :root {
+    --title-h1: 80px;
+    --title-h2: 38px;
+    --title-h1-height: 94px;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  :root {
+    --title-h1: 66px;
+    --title-h2: 34px;
+    --title-h3: 30px;
+    --title-h1-height: 80px;
+    --title-h2-height: 44px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  :root {
+    --title-h1: 58px;
+    --title-h2: 32px;
+    --title-h3: 28px;
+    --title-h1-height: 66px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  :root {
+    --title-h1: 52px;
+    --title-h2: 30px;
+    --title-h3: 26px;
+    --title-h2-height: 38px;
+    --title-h3-height: 32px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  :root {
+    --title-h1: 46px;
+    --title-h2: 28px;
+    --title-h3: 24px;
+    --title-h1-height: 54px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  :root {
+    --title-h1: 40px;
+    --title-h2: 24px;
+    --title-h3: 20px;
+    --title-h1-height: 50px;
+    --title-h2-height: 34px;
+    --title-h3-height: 28px;
+  }
+}

@@ -1,0 +1,45 @@
+@mixin flexItem($justifyContent: flex-start, $alignItems: flex-start, $flexDirection: null) {
+    display: flex;
+    
+    @if $flexDirection != null {
+      flex-direction: $flexDirection;
+    }
+  
+    justify-content: $justifyContent;
+    align-items: $alignItems;
+  }
+  
+  // @mixin regularBoxSize($width, $minHeight) {
+  //   width: $width;
+  //   min-height: $minHeight;
+  // }
+  
+  @mixin regularBox($width, $height: unset, $minHeight: unset, $display: null, $justifyContent, $alignItems, $flexDirection: null) {
+    width: $width;
+    @if $height != unset {
+      height: $height;
+    }
+  
+    @if $minHeight != unset {
+      min-height: $minHeight;
+    }  
+    
+    @if $display != null {
+      @include flexItem($justifyContent, $alignItems, $flexDirection)
+    }
+    
+  }
+
+  @mixin textStyle($fontSize, $color, $fontWeight: unset, $lineHeight: unset) {
+    font-size: $fontSize;
+    color: $color;
+
+    @if $fontWeight != unset {
+      font-weight: $fontWeight;
+    }
+
+    @if $lineHeight != unset {
+      line-height: $lineHeight;
+    }
+    
+  }
