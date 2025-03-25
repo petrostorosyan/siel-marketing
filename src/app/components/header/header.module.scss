@@ -1,8 +1,28 @@
 .headerWrapper {
-    width: 100%;
-    height: 147px;
+  width: 100%;
+  height: 147px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+
+  .headerContent {
+    width: calc(100% - 448px);
+    height: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+
+    .faqButton {
+      width: 71px;
+      height: 40px;
+      border-radius: 50px;
+      background-color: var(--primary-color);
+      color: var(--black-color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+    }
+  }
 }

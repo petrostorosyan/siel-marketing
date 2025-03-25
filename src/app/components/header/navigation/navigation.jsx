@@ -5,7 +5,7 @@ const Navigation = () => {
     return (
         <div className={styles.navigationWrapper}>
             {navData.map((item) => {
-                return <nav>{item.name}</nav>
+                return <nav key={item.id}>{item.name}</nav>
             })}
         </div>
         
