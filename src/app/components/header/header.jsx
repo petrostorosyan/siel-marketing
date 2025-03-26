@@ -4,6 +4,7 @@ import Link from "next/link";
 import Logo from "../shared/logo/logo";
 import styles from "./header.module.scss";
 import Navigation from "./navigation/navigation";
+import MobileMenu from "./mobileMenu/mobileMenu";
 
 export default function Header({ lng }) {
   return (
@@ -15,10 +16,15 @@ export default function Header({ lng }) {
       >
         <div className={styles.headerContent}>
           <Logo />
-          <Navigation />
-          <Link href={"/faq"} className={styles.faqButton}>
-            FAQ
-          </Link>
+          <div className={styles.navigationBlock}>
+            <Navigation />
+            <Link href={"/faq"} className={styles.faqButton}>
+              FAQ
+            </Link>
+          </div>
+        </div>
+        <div className={styles.mobileMenu}>
+          <MobileMenu />
         </div>
       </div>
     </header>

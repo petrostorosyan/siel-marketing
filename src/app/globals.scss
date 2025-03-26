@@ -1,5 +1,5 @@
-@import "../app/styles/css-variables.css";
-@import "../app/styles/_variables.module.scss";
+@use "../app/styles/css-variables.css" as *;
+@use "../app/styles/_variables.module.scss" as *;
 // @import "../app/styles/variables.module";
 
 * {

@@ -1,8 +1,34 @@
+@import "../../../styles/mixins";
+
 .navigationWrapper {
-    width: 500px;
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border: 1px solid #000;
+  @include regularBox(600px, 100%, unset, flex, space-between, center);
+  transition: 0.5s;
+
+  .navItem {
+    color: var(--black-color);
+    cursor: pointer;
+
+    &:hover .line {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .line {
+      width: 100%;
+      height: 2px;
+      margin-top: 5px;
+      opacity: 0;
+      transition: 0.5s;
+      transform: scale(0);
+      background-color: var(--primary-color);
+    }
+  }
+}
+
+/* <---------------------------------  Media  --------------------------------> */
+
+@media screen and (max-width: 1170px) {
+  .navigationWrapper {
+    width: 450px;
+  }
 }
