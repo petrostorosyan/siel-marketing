@@ -1,11 +1,12 @@
-@import "../../../styles/mixins";
+@use "../../../styles/mixins" as *;
+@use "../../../styles/variables.module" as *;
 
 .navigationWrapper {
   @include regularBox(600px, 100%, unset, flex, space-between, center);
   transition: 0.5s;
 
   .navItem {
-    color: var(--black-color);
+    color: $black-color;
     cursor: pointer;
 
     &:hover .line {
@@ -20,7 +21,7 @@
       opacity: 0;
       transition: 0.5s;
       transform: scale(0);
-      background-color: var(--primary-color);
+      background-color: $primary-color;
     }
   }
 }
