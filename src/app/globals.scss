@@ -1,6 +1,6 @@
-@use "../app/styles/css-variables.css" as *;
-@use "../app/styles/_variables.module.scss" as *;
 // @import "../app/styles/variables.module";
+@use "../app/styles/css-variables.css" as *;
+@use "../app/styles/variables" as *;
 
 * {
   margin: 0;

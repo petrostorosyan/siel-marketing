@@ -1,5 +1,5 @@
 @use "../../../styles/mixins" as *;
-@use "../../../styles/variables.module" as *;
+@use "../../../styles/variables" as *;
 
 .navigationWrapper {
   @include regularBox(600px, 100%, unset, flex, space-between, center);
