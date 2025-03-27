@@ -22,9 +22,9 @@ export default function Header({ lng }) {
               FAQ
             </Link>
           </div>
-        </div>
-        <div className={styles.mobileMenu}>
-          <MobileMenu />
+          <div className={styles.mobileMenu}>
+            <MobileMenu />
+          </div>
         </div>
       </div>
     </header>
