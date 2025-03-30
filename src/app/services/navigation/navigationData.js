@@ -4,7 +4,7 @@ export const navData = [
     {
         id: 1,
         name: "Home",
-        link: "",
+        link: "/",
     },
     {
         id: 2,
@@ -28,7 +28,23 @@ export const navData = [
     }
 ];
 
-
+export const blogNavData = [
+    {
+        id: 1,
+        name: "Home",
+        link: "/",
+    },    
+    {
+        id: 2,
+        name: "Contact",
+        link: "/contact-us",
+    },
+    {
+        id: 3,
+        name: "Blog",
+        link: "/blog",
+    }
+];
 
 // export const mobileMenuData = [
 //     {

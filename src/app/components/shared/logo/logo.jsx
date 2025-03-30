@@ -1,10 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
+import styles from "./logo.module.scss"
 
-const Logo = () => {
+const Logo = ({ width, height }) => {
   return (
-    <Link href={"/"}>
-      <Image src={"/images/logo/logo.png"} width={169} height={86} alt="logo" />
+    <Link href={"/"} >
+      <Image className={styles.logo} src={"/images/logo/logo.png"} width={width ? width : 169} height={height ? height : 86} alt="logo" />
     </Link>
   );
 };

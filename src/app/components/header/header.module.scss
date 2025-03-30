@@ -73,7 +73,11 @@
         display: flex;
       }
     }
+  }
+}
 
-    
+@media screen and (max-width: 600px) {
+  .headerWrapper {
+    height: 80px;
   }
 }

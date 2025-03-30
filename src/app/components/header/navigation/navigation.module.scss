@@ -5,13 +5,17 @@
   @include regularBox(600px, 100%, unset, flex, space-between, center);
   transition: 0.5s;
 
-  .navItem {
-    color: $black-color;
+  .navItem {    
     cursor: pointer;
 
     &:hover .line {
       opacity: 1;
       transform: scale(1);
+    }
+
+    .link {
+      text-decoration: none;
+      color: $black-color;
     }
 
     .line {

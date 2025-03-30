@@ -6,40 +6,71 @@
   min-height: 100px;
   padding: 20px;
 
-  .closeIconBox {
-    width: 100%;
-    height: 45px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+  .topNavigation {
     margin-bottom: 20px;
-  }
+    @include regularBox(100%, unset, 50px, flex, space-between, center);
 
-  .navigationContainer {
-    width: 100%;
-    min-height: 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-
-    .navItem {
-        font-size: 20px;
-        margin-bottom: 10px;
-
-        &:nth-last-child(1) {
-            margin-bottom: 0;
-        }
+    .closeIconBox {
+      @include regularBox(40px, 40px, unset, flex, center, center);
     }
   }
 
-  .faqButton {
-    border-radius: 50px;
-    background-color: $primary-color;
-    color: $black-color;
-    text-decoration: none;
-    @include regularBox(71px, 40px, unset, flex, center, center);
+  .navigationContainer {
+    @include regularBox(100%, unset, 40px, flex, flex-start, center, column);
+
+    .navItem {
+      font-size: 20px;
+      margin-bottom: 10px;
+
+      &:nth-last-child(1) {
+        margin-bottom: 0;
+      }
+
+      .link {
+        text-decoration: none;
+        color: $black-color;
+      }
+    }
   }
+
+  .faqButtonBox {
+    margin-top: 20px;
+    @include regularBox(100%, unset, 20px, flex, center, center);
+
+    .faqButton {
+      border-radius: 50px;
+      background-color: $primary-color;
+      color: $white-color;
+      text-decoration: none;
+      @include regularBox(71px, 40px, unset, flex, center, center);
+    }
+  }
+
+  .socialsBlock {
+    margin-top: 50px;
+    margin-bottom: 30px;
+    @include regularBox(100%, unset, 20px, flex, center, center);
+
+    .socialsContent {
+      @include regularBox(270px, unset, 20px, flex, flex-start, center, column);
+
+      .line {
+        width: 100%;
+        height: 2px;
+        background-color: $light-gray-color;
+      }
+
+      .socials {
+        margin-top: 5px;
+        @include regularBox(100%, unset, 20px, flex, space-between, center);
+
+        .link {
+          text-decoration: none;
+          color: #B6C6DC;
+        }
+      }
+    }
+  }
+
+
 }
-
-
