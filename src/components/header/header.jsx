@@ -6,8 +6,8 @@ import styles from "./header.module.scss";
 import Navigation from "./navigation/navigation";
 import MobileMenu from "./mobileMenu/mobileMenu";
 import { colors } from "../../styles/colorVariables";
-import useScreenSize from "@/app/functions/hooks/useScreenSize";
 import { useEffect, useState } from "react";
+import useScreenSize from "@/functions/hooks/useScreenSize";
 
 export default function Header({ lng }) {
   const { width: screenSize, height } = useScreenSize();

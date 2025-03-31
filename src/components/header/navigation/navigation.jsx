@@ -1,9 +1,9 @@
-import { navData, blogNavData } from "@/app/services/navigation/navigationData";
 import styles from "./navigation.module.scss";
 import { Work_Sans } from "next/font/google";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { blogNavData, navData } from "@/services/navigation/navigationData";
 
 const workSans = Work_Sans({ subsets: ["latin"], weight: ["variable"] });
 

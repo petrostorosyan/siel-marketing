@@ -9,7 +9,8 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Logo from "../../shared/logo/logo";
 import { usePathname } from "next/navigation";
-import { navData, blogNavData } from "@/app/services/navigation/navigationData";
+import { blogNavData, navData } from "@/services/navigation/navigationData";
+
 
 const MobileMenu = () => {
   const path = usePathname();
@@ -54,7 +55,7 @@ const MobileMenu = () => {
         <div className={styles.closeIconBox}>
           <CloseRoundedIcon
             className={styles.closeIcon}
-            sx={{ fontSize: "40px" }}
+            sx={{ fontSize: "35px" }}
             onClick={() => {
               toggleDrawer("top", false)();
             }}

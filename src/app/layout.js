@@ -1,6 +1,6 @@
 import { Lexend } from "next/font/google";
 import "./globals.scss";
-import Header from "./components/header/header";
+import Header from "@/components/header/header";
 
 const lexend = Lexend({ subsets: ["latin"], weight: ["variable"] });
 
