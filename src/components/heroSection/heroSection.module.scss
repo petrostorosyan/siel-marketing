@@ -1,0 +1,47 @@
+@use "../../styles/variables" as *;
+
+.heroWrapper {
+  width: 100%;
+  min-height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .heroContainer {
+    width: 1100px;
+    min-height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid red;
+
+    .textBlock {
+      width: 48%;
+      min-height: 100px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      border: 1px solid green;
+
+      .pageTitle {
+        font-size: 40px;
+        color: $black-color;
+      }
+
+      .description {
+        margin-top: 16px;
+        font-size: 20px;
+        color: $black-color;
+      }
+    }
+
+    .imageBlock {
+      width: 48%;
+      min-height: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
