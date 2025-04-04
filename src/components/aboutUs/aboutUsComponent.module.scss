@@ -1,0 +1,30 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+
+.aboutUsWrapper {
+  margin-top: 140px;
+  @include regularBox(100%, unset, 200px, flex, flex-start, center, column);
+  transition: 0.5s;
+
+  .aboutUsContainer {
+    @include regularBox(1100px, unset, 200px, flex, flex-start, center, column);
+
+    .countBlock {
+      width: 100%;
+      height: 90px;
+      margin-top: 35px;
+      border-radius: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: rgb(99, 205, 218);
+      background: linear-gradient(
+        90deg,
+        rgba(99, 205, 218, 0.3029586834733894) 0%,
+        rgba(99, 205, 218, 0.04245448179271705) 50%,
+        rgba(99, 205, 218, 0.3029586834733894) 97%
+      );
+      border: 1px solid #000;
+    }
+  }
+}
