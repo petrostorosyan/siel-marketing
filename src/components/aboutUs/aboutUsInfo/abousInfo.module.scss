@@ -2,16 +2,62 @@
 @use "../../../styles/variables" as *;
 
 .textBlock {
-    @include regularBox(100%, unset, 200px, flex, flex-start, center, column);
-    border: 1px solid green;
+  @include regularBox(100%, unset, 200px, flex, flex-start, center, column);
+  transition: 0.5s;
 
-    .title {
-      font-size: 40px;
-      color: $black-color;
+  .title {
+    font-size: var(--title-h2);
+    color: $black-color;
+  }
+
+  .textBox {
+    width: 100%;
+    min-height: 30px;
+    overflow: hidden;
+    transition: height 0.2s ease-in-out, overflow 0.2s ease-in-out;
+  }
+
+  .text {
+    margin-top: 30px;
+    font-size: 18px;
+    transition: 0.5s;
+  }
+
+  .moreButton {
+    width: 120px;
+    height: 44px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    border: unset;
+    border-radius: 50px;
+    color: white;
+    font-size: 20px;
+    font-weight: 600px;
+    transition: 0.5s;
+    background-color: $primary-color;
+  }
+}
+
+/* <---------------------------------  Media  --------------------------------> */
+
+@media screen and (max-width: 820px) {
+  .textBlock {
+    .text {
+      font-size: 16px;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .textBlock {
+    .moreButton {
+      display: flex;
     }
 
     .textBox {
-      margin-top: 30px;
-      font-size: 18px;
+      min-height: unset;
     }
   }
+}

@@ -10,6 +10,9 @@ const AboutUs = () => {
         <div className={styles.countBlock}>
           <SielInNumbers />
         </div>
+        <div className={styles.mobileCountBlock}>
+          <SielInNumbers />
+        </div>
       </div>
     </div>
   );
