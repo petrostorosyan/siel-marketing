@@ -37,16 +37,12 @@ const AboutUsInfo = () => {
       }, 0);
     }
   }, [open, screenSize]);
-  
 
   return (
     <div className={styles.textBlock}>
       <h3 className={styles.title}>About Us</h3>
 
-      <p
-        className={styles.text}
-       
-      >
+      <p className={styles.text}>
         <b>SIEL Marketing</b> was founded by industry experts with over{" "}
         <b>15 years</b> of experience in freelancing and agency work. Our
         founders, who have excelled both as freelancers and agency specialists,
@@ -56,21 +52,32 @@ const AboutUsInfo = () => {
         experience: one client, one manager, clear communication.
       </p>
 
-      <button onClick={() => setOpen(!open)} className={styles.moreButton}>{open ? "Less": "More"}</button>
-
-      <div className={styles.textBox}  ref={contentRef}
-        style={{
-          height: screenSize>600 ? "unset" : open ? `${contentBoxHeight}px` : "30px",
-        }}>
-        {isClient &&
-          textData.map((item) => (
+      {isClient && (
+        <div
+          className={styles.textBox}
+          ref={contentRef}
+          style={{
+            height:
+              screenSize > 600
+                ? "unset"
+                : open
+                ? `${contentBoxHeight}px`
+                : "30px",
+          }}
+        >
+          {textData.map((item) => (
             <p
               key={item.id}
               className={styles.text}
               dangerouslySetInnerHTML={{ __html: item.text }}
             ></p>
           ))}
-      </div>
+        </div>
+      )}
+
+      <button onClick={() => setOpen(!open)} className={styles.moreButton}>
+        {open ? "Less" : "More"}
+      </button>
     </div>
   );
 };
