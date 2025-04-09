@@ -9,7 +9,6 @@
   .servicesContainer {
     @include regularBox(1100px, unset, 200px, flex, flex-start, center, column);
     transition: 0.5s;
-    border: 2px solid green;
 
     .titleBlock {
       @include regularBox(100%, unset, 100px, flex, flex-start, center, column);

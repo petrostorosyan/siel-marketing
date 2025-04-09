@@ -1,15 +1,18 @@
 import styles from "./serviceCard.module.scss";
 
-const ServiceCard = () => {
+const ServiceCard = ({ title, listItems }) => {
   return (
     <div className={styles.cardWrapper}>
-        <p className={styles.cardTitle}>Title</p>
-        <ul className={styles.list}>
-            <li className={styles.listItem}>visual</li>
-            <li className={styles.listItem}>ui?ux</li>
-        </ul>
+      <p className={styles.cardTitle}>{title}</p>
+      <ul className={styles.list}>
+        {listItems.map((item, index) => {
+          return (
+            <li key={index} className={styles.listItem}>{item}</li>
+          )
+        })}
+      </ul>
     </div>
-  )
-}
+  );
+};
 
 export default ServiceCard;
