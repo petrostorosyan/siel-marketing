@@ -61,7 +61,7 @@ const ServicesBlock = () => {
               item.direction == "left" ? styles.left : styles.right
             }`}
           >
-            <div className={styles.imageBlock}>
+            <div className={`${styles.imageBlock} ${item.id==2 ? styles.secondImageBlock:""}`}>
               <div className={styles.imageBox}>
                 <Image
                   width={450}
@@ -72,7 +72,7 @@ const ServicesBlock = () => {
                 />
               </div>
             </div>
-            <div className={styles.cardBox}>
+            <div className={`${styles.cardBox} ${item.id==2 ? styles.secondCardbox:""}`}>
               <ServiceCard title={item.title} listItems={item.listitems} />
             </div>
           </div>

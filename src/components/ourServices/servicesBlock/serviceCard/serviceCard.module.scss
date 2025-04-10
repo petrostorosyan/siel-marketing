@@ -16,6 +16,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+  transition: 0.5s;
 
   .cardTitle {
     font-size: 30px;
@@ -34,6 +35,21 @@
       height: 20px;
       margin-bottom: 3px;
       color: $black-color;
+      transition: 0.5s;
     }
   }
+}
+
+/* <---------------------------------  Media  --------------------------------> */
+
+@media screen and (max-width: 900px) {
+.cardWrapper {
+  min-width: 340px;
+  padding: 20px 34px;
+  .list {
+    .listItem {
+      font-size: 15px;
+    }
+  }
+}
 }
