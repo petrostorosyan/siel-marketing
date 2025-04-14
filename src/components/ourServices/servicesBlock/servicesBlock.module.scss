@@ -5,9 +5,9 @@
   @include regularBox(100%, unset, 200px, flex, flex-start, center, column);
   margin-top: 80px;
   transition: 0.5s;
-  border: 1px solid #000;
 
   .serviceContent {
+    transition: 0.5s;
     @include regularBox(100%, unset, 100px, flex, space-between, center);
 
     .imageBlock {
@@ -26,6 +26,7 @@
 
     .cardBox {
       @include regularBox(50%, unset, 100px, flex, center, center);
+      transition: 0.5s;
     }
   }
 
@@ -92,5 +93,23 @@
 }
 
 @media screen and (max-width: 820px) {
+  .servicesBlockWrapper {
+    .serviceContent {
+      justify-content: center;
+      margin-bottom: 40px;
+      .imageBlock {
+        display: none;
+      }     
 
+      .cardBox, .secondCardbox  {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .servicesBlockWrapper {
+    margin-top: 50px;
+  }
 }

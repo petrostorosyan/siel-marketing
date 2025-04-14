@@ -1,6 +1,10 @@
+"use client";
+
 import Image from "next/image";
 import styles from "./servicesBlock.module.scss";
 import ServiceCard from "./serviceCard/serviceCard";
+import useScreenSize from "@/functions/hooks/useScreenSize";
+import { useEffect, useState } from "react";
 
 const servicesData = [
   {
@@ -50,7 +54,30 @@ const servicesData = [
   },
 ];
 
+const defaultImagePositions = [
+  { id: 1, top: 100, right: 35 },
+  { id: 2, top: 70, right: 30 },
+  { id: 3, top: 170, right: 20 }
+];
+
+const mobileImagePositions = [
+  { id: 1, top: 165, right: 0 },
+  { id: 2, top: 120, right: -10 },
+  { id: 3, top: 230, right: -8 }
+];
+
 const ServicesBlock = () => {
+  const { width: screenSize, height } = useScreenSize();
+  const [imagePositions, setImagePositions] = useState(defaultImagePositions);
+
+  useEffect(() => {
+    if (screenSize < 550) {
+      setImagePositions(mobileImagePositions);
+    } else {
+      setImagePositions(defaultImagePositions);
+    }
+  }, [screenSize]);
+
   return (
     <div className={styles.servicesBlockWrapper}>
       {servicesData.map((item) => {
@@ -61,7 +88,11 @@ const ServicesBlock = () => {
               item.direction == "left" ? styles.left : styles.right
             }`}
           >
-            <div className={`${styles.imageBlock} ${item.id==2 ? styles.secondImageBlock:""}`}>
+            <div
+              className={`${styles.imageBlock} ${
+                item.id == 2 ? styles.secondImageBlock : ""
+              }`}
+            >
               <div className={styles.imageBox}>
                 <Image
                   width={450}
@@ -72,8 +103,19 @@ const ServicesBlock = () => {
                 />
               </div>
             </div>
-            <div className={`${styles.cardBox} ${item.id==2 ? styles.secondCardbox:""}`}>
-              <ServiceCard title={item.title} listItems={item.listitems} />
+            <div
+              className={`${styles.cardBox} ${
+                item.id == 2 ? styles.secondCardbox : ""
+              }`}
+            >
+              <ServiceCard
+                title={item.title}
+                listItems={item.listitems}
+                id={item.id}
+                imageSource={item.imageSource}
+                imageAlt={item.title}
+                imagePositions={imagePositions}
+              />
             </div>
           </div>
         );

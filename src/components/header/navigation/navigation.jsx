@@ -1,39 +1,62 @@
+"use client";
+
 import styles from "./navigation.module.scss";
 import { Work_Sans } from "next/font/google";
-import { usePathname } from "next/navigation";
-import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { blogNavData, navData } from "@/services/navigation/navigationData";
+import { navData } from "@/services/navigation/navigationData";
 
 const workSans = Work_Sans({ subsets: ["latin"], weight: ["variable"] });
 
 const Navigation = () => {
+  const router = useRouter();
   const path = usePathname();
-  const [navigationData, setNavigationData] = useState(navData);
+
+  const handleScrollToAbout = () => {
+    const section = document.getElementById("about-us");
+
+    if (section) {
+      const offsetTop = section.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({ top: offsetTop - 140, behavior: "smooth" });
+    } else {    
+      sessionStorage.setItem("scrollToId", "about-us");
+      router.push("/");
+    }
+  };
 
   useEffect(() => {
-    if (path == "/blog") {
-      setNavigationData(blogNavData);
-    } else {
-      setNavigationData(navData);
+    const scrollToId = sessionStorage.getItem("scrollToId");
+    if (scrollToId && path === "/") {
+      sessionStorage.removeItem("scrollToId");
+      const el = document.getElementById(scrollToId);
+      if (el) {
+        setTimeout(() => {
+          const offsetTop = el.getBoundingClientRect().top + window.scrollY;
+          window.scrollTo({ top: offsetTop - 100, behavior: "smooth" });
+        }, 300);
+      }
     }
   }, [path]);
 
   return (
     <div className={styles.navigationWrapper}>
-      {navigationData.map((item) => {
-        return (
-          <nav
-            key={item.id}
-            className={`${styles.navItem} ${workSans.className}`}
-          >
-            <Link href={item.link} className={styles.link}>
+      {navData.map((item) => (
+        <nav key={item.id} className={`${styles.navItem} ${workSans.className}`}>
+          {item.scrollTo === "about-us" ? (
+            <a href="#" className={styles.link} onClick={(e) => {
+              e.preventDefault();
+              handleScrollToAbout();
+            }}>
               {item.name}
-            </Link>
-            <div className={styles.line}></div>
-          </nav>
-        );
-      })}
+            </a>
+          ) : (
+            <a href={item.link} className={styles.link}>
+              {item.name}
+            </a>
+          )}
+          <div className={styles.line}></div>
+        </nav>
+      ))}
     </div>
   );
 };
