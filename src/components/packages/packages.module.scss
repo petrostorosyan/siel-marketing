@@ -1,0 +1,14 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+
+.packagesWrapper {
+    @include regularBox(100%, unset, 200px, flex, flex-start, center, column);
+    transition: 0.5s;
+    border: 1px solid #000;
+  
+    .aboutUsContainer {
+      @include regularBox(1100px, unset, 200px, flex, flex-start, center, column);
+      transition: 0.5s;
+      border: 1px solid red;
+    }
+}

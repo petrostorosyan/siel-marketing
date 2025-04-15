@@ -1,3 +1,5 @@
+"use client";
+
 import styles from "./mobileMenu.module.scss";
 import * as React from "react";
 import Box from "@mui/material/Box";
@@ -5,22 +7,16 @@ import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import Button from "@mui/material/Button";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
-import { useState, useEffect, useRef } from "react";
-import Link from "next/link";
+import { useState, useEffect } from "react";
 import Logo from "../../shared/logo/logo";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { blogNavData, navData } from "@/services/navigation/navigationData";
 
-
 const MobileMenu = () => {
+  const router = useRouter();
   const path = usePathname();
   const [navigationData, setNavigationData] = useState(navData);
-  const [state, setState] = useState({
-    top: false,
-    left: false,
-    bottom: false,
-    right: false,
-  });
+  const [state, setState] = useState({ top: false });
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (
@@ -30,24 +26,43 @@ const MobileMenu = () => {
     ) {
       return;
     }
-
     setState({ ...state, [anchor]: open });
-  };  
-  
-    useEffect(() => {
-      if (path == "/blog") {
-        setNavigationData(blogNavData);
-      } else {
-        setNavigationData(navData);
-      }
-    }, [path]);
+  };
+
+  useEffect(() => {
+    if (path === "/blog") {
+      setNavigationData(blogNavData);
+    } else {
+      setNavigationData(navData);
+    }
+  }, [path]);
+
+  const handleScrollToSection = (id) => {
+    const section = document.getElementById(id);
+
+    if (section) {
+      const offsetTop = section.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({ top: offsetTop - 140, behavior: "smooth" });
+    } else {
+      sessionStorage.setItem("scrollToId", id);
+      router.push("/");
+    }
+  };
+
+  const handleLinkClick = (item) => (e) => {
+    e.preventDefault();
+    toggleDrawer("top", false)(); // Закрываем меню
+    if (item.scrollTo) {
+      handleScrollToSection(item.scrollTo);
+    } else if (item.link) {
+      router.push(item.link);
+    }
+  };
 
   const list = (anchor) => (
     <Box
-      sx={{ width: anchor === "top" || anchor === "bottom" ? "auto" : 250 }}
+      sx={{ width: anchor === "top" ? "auto" : 250 }}
       role="presentation"
-      onClick={toggleDrawer(anchor, false)}
-      onKeyDown={toggleDrawer(anchor, false)}
       className={styles.list}
     >
       <div className={styles.topNavigation}>
@@ -56,40 +71,38 @@ const MobileMenu = () => {
           <CloseRoundedIcon
             className={styles.closeIcon}
             sx={{ fontSize: "35px" }}
-            onClick={() => {
-              toggleDrawer("top", false)();
-            }}
+            onClick={() => toggleDrawer("top", false)()}
           />
         </div>
       </div>
 
       <div className={styles.navigationContainer}>
-        {navigationData.map((item) => {
-          return (
-            <nav key={item.id} className={`${styles.navItem}`}>
-               <Link href={item.link} className={styles.link}>{item.name}</Link>
-            </nav>
-          );
-        })}
+        {navigationData.map((item) => (
+          <nav key={item.id} className={styles.navItem}>
+            <a href="#" className={styles.link} onClick={handleLinkClick(item)}>
+              {item.name}
+            </a>
+          </nav>
+        ))}
       </div>
 
       <div className={styles.faqButtonBox}>
-        <Link href={"/faq"} className={styles.faqButton}>
+        <a href="/faq" className={styles.faqButton}>
           FAQ
-        </Link>
+        </a>
       </div>
 
       <div className={styles.socialsBlock}>
         <div className={styles.socialsContent}>
           <div className={styles.line}></div>
           <div className={styles.socials}>
-            <a href={"https://www.linkedin.com/company/sielmarketing/"} className={styles.link} target="_blank">
-              Linkedin
-            </a>
-            <a href={"/"} className={styles.link} target="_blank">
-              Email
-            </a>
-            <a href={"https://api.whatsapp.com/send/?phone=37495666833&text=Hello%2C+I%E2%80%99m+interested+in+learning+more+about+your+services+at+SIEL+Marketing.+Could+you+please+provide+details+on+how+your+packages+can+help+my+business+grow%3F+Thank+you%21&type=phone_number&app_absent=0"} className={styles.link} target="_blank">
+            <a href="https://www.linkedin.com/company/sielmarketing/" className={styles.link} target="_blank">Linkedin</a>
+            <a href="/" className={styles.link} target="_blank">Email</a>
+            <a
+              href="https://api.whatsapp.com/send/?phone=37495666833&text=Hello%2C+I%E2%80%99m+interested+in+learning+more+about+your+services+at+SIEL+Marketing..."
+              className={styles.link}
+              target="_blank"
+            >
               Whatsapp
             </a>
           </div>
@@ -100,21 +113,17 @@ const MobileMenu = () => {
 
   return (
     <div>
-      {["top"].map((anchor) => (
-        <React.Fragment key={anchor}>
-          <Button onClick={toggleDrawer(anchor, true)}>
-            <MenuRoundedIcon sx={{ color: "#000000", fontSize: "40px" }} />
-          </Button>
-          <SwipeableDrawer
-            anchor={anchor}
-            open={state[anchor]}
-            onClose={toggleDrawer(anchor, false)}
-            onOpen={toggleDrawer(anchor, true)}
-          >
-            {list(anchor)}
-          </SwipeableDrawer>
-        </React.Fragment>
-      ))}
+      <Button onClick={toggleDrawer("top", true)}>
+        <MenuRoundedIcon sx={{ color: "#000000", fontSize: "40px" }} />
+      </Button>
+      <SwipeableDrawer
+        anchor="top"
+        open={state.top}
+        onClose={toggleDrawer("top", false)}
+        onOpen={toggleDrawer("top", true)}
+      >
+        {list("top")}
+      </SwipeableDrawer>
     </div>
   );
 };

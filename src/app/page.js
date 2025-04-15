@@ -3,6 +3,7 @@ import styles from "./page.module.scss";
 import HeroSection from "@/components/heroSection/heroSection";
 import SielInfo from "@/components/sielInfo/sielInfo";
 import OurServices from "@/components/ourServices/ourServices";
+import Packages from "@/components/packages/packages";
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <SielInfo />
       <AboutUs />
       <OurServices />
+      <Packages />
     </div>
   );
 }

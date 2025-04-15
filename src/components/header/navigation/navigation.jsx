@@ -4,22 +4,31 @@ import styles from "./navigation.module.scss";
 import { Work_Sans } from "next/font/google";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { navData } from "@/services/navigation/navigationData";
+import { blogNavData, navData } from "@/services/navigation/navigationData";
 
 const workSans = Work_Sans({ subsets: ["latin"], weight: ["variable"] });
 
 const Navigation = () => {
   const router = useRouter();
   const path = usePathname();
+  const [navigationData, setNavigationData] = useState(navData);
 
-  const handleScrollToAbout = () => {
-    const section = document.getElementById("about-us");
+  useEffect(() => {
+    if (path == "/blog") {
+      setNavigationData(blogNavData);
+    } else {
+      setNavigationData(navData);
+    }
+  }, [path]);
+
+  const handleScrollToSection = (id) => {
+    const section = document.getElementById(id);
 
     if (section) {
       const offsetTop = section.getBoundingClientRect().top + window.scrollY;
-      window.scrollTo({ top: offsetTop - 140, behavior: "smooth" });
-    } else {    
-      sessionStorage.setItem("scrollToId", "about-us");
+      window.scrollTo({ top: offsetTop - 100, behavior: "smooth" });
+    } else {
+      sessionStorage.setItem("scrollToId", id);
       router.push("/");
     }
   };
@@ -40,13 +49,17 @@ const Navigation = () => {
 
   return (
     <div className={styles.navigationWrapper}>
-      {navData.map((item) => (
+      {navigationData.map((item) => (
         <nav key={item.id} className={`${styles.navItem} ${workSans.className}`}>
-          {item.scrollTo === "about-us" ? (
-            <a href="#" className={styles.link} onClick={(e) => {
-              e.preventDefault();
-              handleScrollToAbout();
-            }}>
+          {item.scrollTo ? (
+            <a
+              href="#"
+              className={styles.link}
+              onClick={(e) => {
+                e.preventDefault();
+                handleScrollToSection(item.scrollTo);
+              }}
+            >
               {item.name}
             </a>
           ) : (

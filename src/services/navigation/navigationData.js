@@ -16,6 +16,7 @@ export const navData = [
         id: 3,
         name: "Packages",
         link: "/packages",
+        scrollTo: "packages",
     },
     {
         id: 4,
