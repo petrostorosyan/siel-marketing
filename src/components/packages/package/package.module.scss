@@ -8,11 +8,7 @@
     padding: 15px 20px;
 
     .titleAndImage {
-        // margin-top: 15px;
-        // margin-left: 19px;
-        // margin-right: 19px;
         @include regularBox(100%, 80px, unset, flex, space-between, center);
-        border: 1px solid #000;
 
         .packageTitle {
             width: calc(100% - 130px);
@@ -20,7 +16,18 @@
             font-weight: bold;
             color: $black-color;
             line-height: 45px;
-            border: 1px solid #000;
         }
+    }
+
+    .packageDescription {
+        width: 100%;
+        height: 80px;
+        font-size: 14px;
+        color: $black-color;
+    }
+
+    .paymentBlock {
+        @include regularBox(100%, 50px, unset, flex, flex-start, center);
+        border: 1px solid #000;
     }
 }
