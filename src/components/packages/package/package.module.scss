@@ -1,0 +1,26 @@
+@use "../../../styles/mixins" as *;
+@use "../../../styles/variables" as *;
+
+.packageWrapper {
+    @include regularBox(520px, 700px, unset, flex, flex-start, flex-start, column);
+    border-radius: 30px;
+    border: 1px solid $primary-color;
+    padding: 15px 20px;
+
+    .titleAndImage {
+        // margin-top: 15px;
+        // margin-left: 19px;
+        // margin-right: 19px;
+        @include regularBox(100%, 80px, unset, flex, space-between, center);
+        border: 1px solid #000;
+
+        .packageTitle {
+            width: calc(100% - 130px);
+            font-size: 34px;
+            font-weight: bold;
+            color: $black-color;
+            line-height: 45px;
+            border: 1px solid #000;
+        }
+    }
+}
