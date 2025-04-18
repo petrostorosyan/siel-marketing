@@ -1,19 +1,19 @@
 import styles from "./packageCard.module.scss"
 
-const PackageCard = () => {
+const PackageCard = ({ listData }) => {
   return (
     <div className={styles.cardWrapper}>
       <p className={styles.cardTitle}>
-        {/* {title} */} Brand Identity + Design:
+        {listData.title}
         </p>
       <ul className={styles.list}>
-        {/* {listItems.map((item, index) => {
+        {listData.list.map((item, index) => {
           return (
             <li key={index} className={styles.listItem}>
               {item}
             </li>
           );
-        })} */}
+        })}
       </ul>
 
       

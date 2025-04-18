@@ -7,7 +7,7 @@
     border: 1px solid #000;
   
     .packagesContainer {
-      @include regularBox(1100px, unset, 200px, flex, flex-start, center, column);
+      @include regularBox(1100px, unset, 200px, flex, space-between, center);
       transition: 0.5s;
       padding: 50px 0;
       border: 1px solid red;

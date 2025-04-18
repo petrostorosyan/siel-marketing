@@ -31,7 +31,7 @@
       width: 100%;
       min-height: 20px;
       list-style-position: inside;
-      list-style-type: decimal;
+      list-style-type: disc;
   
       .listItem {
         width: 100%;
@@ -39,6 +39,8 @@
         margin-bottom: 3px;
         color: $black-color;
         transition: 0.5s;
+        font-size: 14px;
+        line-height: 14px;
       }
     }
   }

@@ -2,7 +2,7 @@
 @use "../../../styles/variables" as *;
 
 .packageWrapper {
-    @include regularBox(520px, 700px, unset, flex, flex-start, flex-start, column);
+    @include regularBox(525px, 700px, unset, flex, flex-start, flex-start, column);
     border-radius: 30px;
     border: 1px solid $primary-color;
     padding: 15px 20px;
@@ -11,11 +11,11 @@
         @include regularBox(100%, 80px, unset, flex, space-between, center);
 
         .packageTitle {
-            width: calc(100% - 130px);
+            width: calc(100% - 195px);
             font-size: 34px;
             font-weight: bold;
             color: $black-color;
-            line-height: 45px;
+            line-height: 33px;
         }
     }
 
@@ -46,6 +46,10 @@
         width: 100%;
         min-height: 100px;
         margin-top: 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
         border: 1px solid #000;
     }
 }
