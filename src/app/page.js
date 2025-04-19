@@ -10,8 +10,8 @@ export default function Home() {
     <div className={styles.page}>
       <HeroSection />
       <SielInfo />
-      {/* <AboutUs /> */}
-      {/* <OurServices /> */}
+      <AboutUs />
+      <OurServices />
       <Packages />
     </div>
   );

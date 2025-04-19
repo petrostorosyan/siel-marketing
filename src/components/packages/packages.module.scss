@@ -2,14 +2,49 @@
 @use "../../styles/variables" as *;
 
 .packagesWrapper {
-    @include regularBox(100%, unset, 200px, flex, flex-start, center, column);
+  margin-top: 50px;
+  @include regularBox(100%, unset, 200px, flex, flex-start, center, column);
+  transition: 0.5s;
+
+  .packagesContainer {
+    @include regularBox(1100px, unset, 200px, flex, space-between, center, column);
     transition: 0.5s;
-    border: 1px solid #000;
-  
-    .packagesContainer {
-      @include regularBox(1100px, unset, 200px, flex, space-between, center);
+    padding: 50px 0;
+
+    .packageBlock {
+      @include regularBox(100%, unset, 200px, flex, space-between, center);
+      margin-bottom: 30px;
       transition: 0.5s;
-      padding: 50px 0;
-      border: 1px solid red;
     }
+  }
+}
+
+/* <---------------------------------  Media  --------------------------------> */
+
+@media screen and (max-width: 1170px) {
+  .packagesWrapper {
+    .packagesContainer {
+      width: 870px;
+      .packageBlock {
+        flex-direction: column;
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .packagesWrapper {
+    .packagesContainer {
+      width: 775px;
+    }
+  }
+}
+
+@media screen and (max-width: 820px) {
+  .packagesWrapper {
+    .packagesContainer {
+      width: 100%;
+    }
+  }
 }

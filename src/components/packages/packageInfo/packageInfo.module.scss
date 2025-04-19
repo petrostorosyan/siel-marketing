@@ -1,0 +1,71 @@
+@use "../../../styles/mixins" as *;
+@use "../../../styles/variables" as *;
+
+.infoContainer {
+  min-height: 30px;
+  @include regularBox(100%, unset, 30px, flex, center, center);
+  transition: 0.5s;
+
+  .infoWrapper {
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    text-align: center;
+    color: $black-color;
+    font-size: 24px;
+    padding: 15px 130px;
+    border: 1px solid $primary-color;
+    transition: 0.5s;
+  }
+}
+
+/* <---------------------------------  Media  --------------------------------> */
+
+@media screen and (max-width: 1170px) {
+  .infoContainer {
+    .infoWrapper {
+      font-size: 22px;
+      padding: 15px 60px;
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .infoContainer {
+    .infoWrapper {
+      font-size: 20px;
+    }
+  }
+}
+
+@media screen and (max-width: 820px) {
+    .infoContainer {
+      padding: 0 50px;
+
+      .infoWrapper {
+        padding: 15px 40px;
+      }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .infoContainer {
+      padding: 0 30px;
+
+      .infoWrapper {
+        font-size: 18px;
+        padding: 15px 30px;
+      }
+    }
+}
+
+@media screen and (max-width: 470px) {
+    .infoContainer {
+      padding: 0 20px;
+
+      .infoWrapper {
+        font-size: 18px;
+        padding: 15px;
+      }
+    }
+}

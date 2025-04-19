@@ -23,13 +23,47 @@ export const packageData = [
                     "AI-Driven Audience Targeting",
                     "Basic AI-Powered Ad Optimization"
                 ]
+            },
+            {
+                id: 3,
+                title: "Content Creation:",
+                list: [
+                    "Video Production and Editing",
+                    "Intro and Outro Animations",
+                    "Social Media Content Sets"
+                ]
+            },
+            {
+                id: 4,
+                title: "Consulting and Strategy:",
+                list: [
+                    "Social Media Strategies",
+                    "Business Plans, Consulting Services"
+                ]
+            },
+            {
+                id: 5,
+                title: "Essential Marketing:",
+                list: [
+                    "Social Media Marketing",
+                    "Social Media Advertising",
+                    "Audience Research and Location Insights"
+                ]
+            },
+            {
+                id: 6,
+                title: "Support Services:",
+                list: [
+                    "Basic Troubleshooting",
+                    "Problem Solving"
+                ]
             }
         ]
     },
     {
         id: 2,
         title: "Premium Growth Package",
-        imageSource: "/images/packages/bag.svg",
+        imageSource: "/images/packages/diamond.svg",
         description: "This Premium Growth Package includes a full suite of branding, media, and digital solutions with integrated AI marketing for businesses ready to scale and optimize their digital impact.",
         price: "7,000",
         cardsInfo: [
@@ -49,7 +83,48 @@ export const packageData = [
                     "Full Troubleshooting",
                     "Problem Solving for uninterrupted operations"
                 ]
-            }
+            },
+            {
+                id: 3,
+                title: "Advanced Content and Media:",
+                list: [
+                    "Full-scale Video Production",
+                    "Advanced Visual Effects",
+                    "Customized Intro and Outro Animations"
+                ]
+            },
+            {
+                id: 4,
+                title: "Strategic Consulting:",
+                list: [
+                    "In-depth Social Media",
+                    "Strategies",
+                    "Business Plans and consulting focused on growth and scaling"
+                ]
+            },
+            {
+                id: 5,
+                title: "Integrated Marketing:",
+                list: [
+                    "UI/UX Website Development",
+                    "Social Media Marketing",
+                    "Social Media Advertisement",
+                    "Audience Research",
+                    "Email Marketing",
+                    "Full Social Media",
+                    // "Management"
+                ]
+            },
+            {
+                id: 6,
+                title: "Advanced AI Marketing:",
+                list: [
+                    "AI-Driven Audience",
+                    "Targeting",
+                    "Advanced AI-Powered Ad Optimization",
+                    "Chatbot Integration for customer engagement"
+                ]
+            },
         ]
     }
 ]

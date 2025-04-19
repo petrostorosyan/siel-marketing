@@ -1,14 +1,19 @@
 import { packageData } from "@/services/package/packageData";
 import Package from "./package/package";
 import styles from "./packages.module.scss";
+import PackageInfo from "./packageInfo/packageInfo";
 
 const Packages = () => {
   return (
     <div className={styles.packagesWrapper} id="packages">
       <div className={styles.packagesContainer}>
-        {packageData.map((item) => {
-          return <Package key={item.id} data={item} />;
-        })}
+        <div className={styles.packageBlock}>
+          {packageData.map((item) => {
+            return <Package key={item.id} data={item} />;
+          })}
+        </div>
+
+        <PackageInfo />
       </div>
     </div>
   );
