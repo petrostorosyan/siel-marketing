@@ -5,7 +5,7 @@ import PackageInfo from "./packageInfo/packageInfo";
 
 const Packages = () => {
   return (
-    <div className={styles.packagesWrapper} id="packages">
+    <section className={styles.packagesWrapper} id="packages">
       <div className={styles.packagesContainer}>
         <div className={styles.packageBlock}>
           {packageData.map((item) => {
@@ -15,7 +15,7 @@ const Packages = () => {
 
         <PackageInfo />
       </div>
-    </div>
+    </section>
   );
 };
 

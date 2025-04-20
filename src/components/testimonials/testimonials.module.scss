@@ -1,0 +1,49 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+
+.testimonialsContainer {
+  @include regularBox(100%, unset, 200px, flex, center, flex-start);
+  margin: 50px 0;
+  transition: 0.5s;
+
+  .testimonialsWrapper {
+    @include regularBox(1200px, unset, 200px, flex, flex-start, center, column);
+    transition: 0.5s;
+
+    .sectionTitle {
+      @include textStyle(
+        var(--title-h2),
+        $black-color,
+        bold,
+        var(--title-h2-height)
+      );
+      margin-bottom: 40px;
+    }
+  }
+}
+
+/* <---------------------------------  Media  --------------------------------> */
+
+@media screen and (max-width: 1170px) {
+  .testimonialsContainer {
+    .testimonialsWrapper {
+      width: 870px;
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .testimonialsContainer {
+    .testimonialsWrapper {
+      width: 775px;
+    }
+  }
+}
+
+@media screen and (max-width: 820px) {
+    .testimonialsContainer {
+        .testimonialsWrapper {
+          width: 100%;
+        }
+      }
+}

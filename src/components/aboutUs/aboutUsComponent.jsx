@@ -4,7 +4,7 @@ import SielInNumbers from "./sielInNumbers/sielInNumbers";
 
 const AboutUs = () => {
   return (
-    <div id="about-us" className={styles.aboutUsWrapper}>
+    <section id="about-us" className={styles.aboutUsWrapper}>
       <div className={styles.aboutUsContainer}>
         <AboutUsInfo />
         <div className={styles.countBlock}>
@@ -14,7 +14,7 @@ const AboutUs = () => {
           <SielInNumbers />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

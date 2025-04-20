@@ -4,6 +4,7 @@ import HeroSection from "@/components/heroSection/heroSection";
 import SielInfo from "@/components/sielInfo/sielInfo";
 import OurServices from "@/components/ourServices/ourServices";
 import Packages from "@/components/packages/packages";
+import Testimonials from "@/components/testimonials/testimonials";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <AboutUs />
       <OurServices />
       <Packages />
+      <Testimonials />
     </div>
   );
 }

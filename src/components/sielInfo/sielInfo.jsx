@@ -21,7 +21,7 @@ const sielInfoData = [
 
 const SielInfo = () => {
   return (
-    <div className={styles.infoWrapper}>
+    <section className={styles.infoWrapper}>
       <div className={styles.infoContainer}>
         {sielInfoData.map((item) => {
           return (
@@ -35,7 +35,7 @@ const SielInfo = () => {
           );
         })}
       </div>
-    </div>
+    </section>
   );
 };
 

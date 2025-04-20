@@ -3,7 +3,7 @@ import ServicesBlock from "./servicesBlock/servicesBlock";
 
 const OurServices = () => {
   return (
-    <div className={styles.servicesWrapper}>
+    <section className={styles.servicesWrapper}>
       <div className={styles.servicesContainer}>
         <div className={styles.titleBlock}>
           <h2 className={styles.sectionTitle}>Our Services</h2>
@@ -15,7 +15,7 @@ const OurServices = () => {
         </div>
         <ServicesBlock />
       </div>
-    </div>
+    </section>
   );
 };
 
