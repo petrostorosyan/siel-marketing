@@ -1,0 +1,99 @@
+@use "../../../styles/mixins" as *;
+@use "../../../styles/variables" as *;
+
+.choiceItemContainer {
+  @include regularBox(100%, 145px, unset, flex, center, flex-start);
+  border: 1px solid #000;
+  position: relative;
+
+  .problem {
+    background: #ffffff;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.39) 0%,
+      rgba(243, 166, 131, 0.4) 100%
+    );
+    border-radius: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    @include regularBox(53%, 100%, unset, flex, flex-end, center);
+    padding: 20px 0;
+    padding-right: 150px;
+
+    .iconBox {
+      width: 104px;
+      height: 106px;
+      margin-right: 60px;
+
+      .icon {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .textBox {
+      @include regularBox(305px, 100%, unset, flex, center, flex-start, column);
+      border: 1px solid #000;
+
+      .choiseTitle {
+        @include textStyle(20px, $black-color, bold, 20px);
+        margin-bottom: 5px;
+      }
+
+      .choiseDescription {
+        @include textStyle(16px, $black-color, 500, 20px);
+      }
+    }
+  }
+
+  .centerBox {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+  }
+
+  .solution {
+    background: #63cdda;
+    background: linear-gradient(
+      90deg,
+      rgba(99, 205, 218, 0.4) 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    border-radius: 20px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    @include regularBox(53%, 100%, unset, flex, flex-start, center);
+    padding: 20px 0;
+    padding-left: 150px;
+
+    .iconBox {
+      width: 104px;
+      height: 106px;
+      margin-left: 60px;
+
+      .icon {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .textBox {
+      @include regularBox(305px, 100%, unset, flex, center, flex-start, column);
+      border: 1px solid #000;
+
+      .choiseTitle {
+        @include textStyle(20px, $black-color, bold, 20px);
+        margin-bottom: 5px;
+      }
+
+      .choiseDescription {
+        @include textStyle(16px, $black-color, 500, 20px);
+      }
+    }
+  }
+}

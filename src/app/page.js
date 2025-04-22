@@ -5,16 +5,18 @@ import SielInfo from "@/components/sielInfo/sielInfo";
 import OurServices from "@/components/ourServices/ourServices";
 import Packages from "@/components/packages/packages";
 import Testimonials from "@/components/testimonials/testimonials";
+import RightChoice from "@/components/rightChoice/rightChoice";
 
 export default function Home() {
   return (
     <div className={styles.page}>
       <HeroSection />
-      <SielInfo />
+      {/* <SielInfo />
       <AboutUs />
       <OurServices />
       <Packages />
-      <Testimonials />
+      <Testimonials /> */}
+      <RightChoice />
     </div>
   );
 }
