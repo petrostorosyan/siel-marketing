@@ -3,18 +3,22 @@
 import Image from "next/image";
 import styles from "./choiceItem.module.scss";
 import { useEffect, useState } from "react";
+import useScreenSize from "@/functions/hooks/useScreenSize";
 
 const ChoiceItem = ({ data }) => {
   const [show, setShow] = useState(false);
+  const { width: screenSize } = useScreenSize();
 
   const problem = () => {
-    console.log("problem");
-    setShow(true);
+    if (screenSize < 1170) {
+      setShow(false);
+    }
   };
 
   const solution = () => {
-    console.log("solution");
-    setShow(false);
+    if (screenSize < 1170) {
+      setShow(true);
+    }
   };
 
   useEffect(() => {
@@ -22,12 +26,12 @@ const ChoiceItem = ({ data }) => {
   }, [show]);
 
   return (
-    <div className={styles.choiceItemContainer}>
-      <div
-        className={`${styles.problem} ${styles.choiceItem} ${
-          show ? styles.hideProblem : ""
-        }`}
-      >
+    <div
+      className={`${styles.choiceItemContainer} ${
+        show ? styles.showSolution : styles.showProblem
+      }`}
+    >
+      <div className={`${styles.problem} ${styles.choiceItem}`}>
         <div className={styles.iconBox}>
           <Image
             width={104}
@@ -45,6 +49,7 @@ const ChoiceItem = ({ data }) => {
           </p>
         </div>
       </div>
+
       <div className={styles.centerBox}>
         <div className={styles.imageBox}>
           <Image
@@ -56,6 +61,7 @@ const ChoiceItem = ({ data }) => {
           />
         </div>
       </div>
+
       <div className={`${styles.solution} ${styles.choiceItem}`}>
         <div className={styles.textBox}>
           <p className={styles.choiseTitle}>SOLUTION:</p>
