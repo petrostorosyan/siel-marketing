@@ -2,29 +2,24 @@
 @use "../../../styles/variables" as *;
 
 .choiceItemContainer {
-  @include regularBox(100%, 145px, unset, flex, center, flex-start);
-  border: 1px solid #000;
+  @include regularBox(100%, 125px, unset, flex, center, flex-start);
   position: relative;
+  margin-bottom: 30px;
+  transition: 0.5s;
 
-  .problem {
-    background: #ffffff;
-    background: linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0.39) 0%,
-      rgba(243, 166, 131, 0.4) 100%
-    );
+  .choiceItem {
     border-radius: 20px;
     position: absolute;
     top: 0;
-    left: 0;
     @include regularBox(53%, 100%, unset, flex, flex-end, center);
     padding: 20px 0;
-    padding-right: 150px;
+    transition: 0.5s;
+    border: 1px solid #000;
 
     .iconBox {
       width: 104px;
       height: 106px;
-      margin-right: 60px;
+      transition: 0.5s;
 
       .icon {
         width: 100%;
@@ -34,16 +29,34 @@
 
     .textBox {
       @include regularBox(305px, 100%, unset, flex, center, flex-start, column);
-      border: 1px solid #000;
+      transition: 0.5s;
 
       .choiseTitle {
         @include textStyle(20px, $black-color, bold, 20px);
         margin-bottom: 5px;
+        transition: 0.5s;
       }
 
       .choiseDescription {
         @include textStyle(16px, $black-color, 500, 20px);
+        transition: 0.5s;
       }
+    }
+  }
+
+  .problem {
+    background: #ffffff;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.39) 0%,
+      rgba(243, 166, 131, 0.4) 100%
+    );
+    left: 0;
+    justify-content: flex-end;
+    padding-right: 150px;
+
+    .iconBox {
+      margin-right: 60px;
     }
   }
 
@@ -53,6 +66,17 @@
     top: 50%;
     transform: translate(-50%, -50%);
     z-index: 5;
+    transition: 0.5s;
+
+    .imageBox {
+      width: 57px;
+      height: 92px;
+
+      .image {
+        width: 100%;
+        height: 100%;
+      }
+    }
   }
 
   .solution {
@@ -62,38 +86,115 @@
       rgba(99, 205, 218, 0.4) 0%,
       rgba(255, 255, 255, 0) 100%
     );
-    border-radius: 20px;
-    position: absolute;
-    top: 0;
     right: 0;
     z-index: 2;
-    @include regularBox(53%, 100%, unset, flex, flex-start, center);
-    padding: 20px 0;
+    justify-content: flex-start;
     padding-left: 150px;
 
     .iconBox {
-      width: 104px;
-      height: 106px;
       margin-left: 60px;
+    }
+  }
+}
 
-      .icon {
-        width: 100%;
-        height: 100%;
+/* <---------------------------------  Media  --------------------------------> */
+
+@media screen and (max-width: 1530px) {
+  .choiceItemContainer {
+    height: 115px;
+    .choiceItem {
+      width: 54%;
+      padding-top: 15px;
+      padding-bottom: 15px;
+
+      .iconBox {
+        width: 90px;
+        height: 92px;
+      }
+
+      .textBox {
+        width: 250px;
+        .choiseTitle {
+          font-size: 18px;
+        }
+        .choiseDescription {
+          font-size: 14px;
+        }
       }
     }
 
-    .textBox {
-      @include regularBox(305px, 100%, unset, flex, center, flex-start, column);
-      border: 1px solid #000;
-
-      .choiseTitle {
-        @include textStyle(20px, $black-color, bold, 20px);
-        margin-bottom: 5px;
-      }
-
-      .choiseDescription {
-        @include textStyle(16px, $black-color, 500, 20px);
+    .centerBox {
+      .imageBox {
+        width: 47px;
+        height: 82px;
       }
     }
+  }
+}
+
+@media screen and (max-width: 1170px) {
+  .choiceItemContainer {
+    height: 100px;
+    padding: 0 100px;
+
+    .choiceItem {
+      padding-top: 15px;
+      padding-bottom: 15px;
+      
+
+      .iconBox {
+        width: 60px;
+        height: 62px;
+      }
+
+      // .textBox {
+      //   width: 250px;
+      //   .choiseTitle {
+      //     font-size: 18px;
+      //   }
+      //   .choiseDescription {
+      //     font-size: 14px;
+      //   }
+      // }
+    }
+
+    .centerBox {
+      display: none;
+    }
+
+    .problem {
+      width: 600px;
+      left: 160px;
+      padding-right: 30px;
+      justify-content: flex-start;
+      flex-direction: row-reverse;
+      z-index: 5;
+
+      .iconBox {
+        margin-right: 0;
+      }
+    }
+
+    .solution {
+      width: 600px;
+      right: 0px;
+      left: 280px;     
+      padding-right: 30px;
+      padding-left: 30px;
+      justify-content: flex-end;
+      background: linear-gradient(
+        270deg,
+        rgba(99, 205, 218, 0.4) 0%,
+        rgba(255, 255, 255, 0) 100%
+      );   
+      
+      .textBox {
+        opacity: 0;
+      }
+    }
+  }
+
+  .hideProblem {
+    width: 200px;
   }
 }
