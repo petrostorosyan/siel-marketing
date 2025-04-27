@@ -7,62 +7,12 @@
   margin-bottom: 30px;
   transition: 0.5s;
 
-  &.showProblem {
-    .problem {
-      width: 600px;
-      .textBox {
-        visibility: visible;
-        opacity: 1;
-        max-width: 305px;
-        overflow: unset;
-        pointer-events: none;
-      }
-    }
-
-    .solution {
-      .textBox {
-        visibility: hidden;
-        opacity: 0;
-        max-width: 1px;
-        overflow: hidden;
-        pointer-events: auto;
-      }
-    }
-  }
-
-  &.showSolution {
-    .problem {
-      width: 200px;
-      .textBox {
-        visibility: hidden;
-        opacity: 0;
-        max-width: 1px;
-        overflow: hidden;
-        pointer-events: auto;
-      }
-    }
-
-    .solution {
-      .textBox {
-        visibility: visible;
-        opacity: 1;
-        max-width: 305px;
-        overflow: unset;
-        pointer-events: none;
-      }
-    }
-  }
-
   .choiceItem {
     border-radius: 20px;
     position: absolute;
     top: 0;
     @include regularBox(53%, 100%, unset, flex, flex-end, center);
     padding: 20px 0;
-    transition: all 0.25s ease;
-    opacity: 1;
-    max-width: 600px;
-    overflow: hidden;
 
     .iconBox {
       width: 104px;
@@ -93,6 +43,7 @@
   }
 
   .problem {
+    background: #ffffff;
     background: linear-gradient(
       90deg,
       rgba(255, 255, 255, 0.39) 0%,
@@ -127,6 +78,7 @@
   }
 
   .solution {
+    background: #63cdda;
     background: linear-gradient(
       90deg,
       rgba(99, 205, 218, 0.4) 0%,
@@ -140,13 +92,6 @@
     .iconBox {
       margin-left: 60px;
     }
-  }
-
-  .hide {
-    opacity: 0;
-    max-width: 0px;
-    pointer-events: none;
-    padding: 0;
   }
 }
 
@@ -190,16 +135,79 @@
 
 @media screen and (max-width: 1170px) {
   .choiceItemContainer {
+    width: 950px;
     height: 100px;
-    padding: 0 100px;
+    padding: 0 70px;
+
+    &.showProblem {
+      .problem {
+        width: 550px;
+        .textBox {
+          visibility: visible;
+          opacity: 1;
+          max-width: 305px;
+          overflow: unset;
+          pointer-events: none;
+        }
+      }
+
+      .solution {
+        .textBox {
+          visibility: hidden;
+          opacity: 0;
+          overflow: hidden;
+          pointer-events: auto;
+        }
+      }
+    }
+
+    &.showSolution {
+      .problem {
+        width: 200px;
+        .textBox {
+          visibility: hidden;
+          opacity: 0;
+          max-width: 1px;
+          overflow: hidden;
+          pointer-events: auto;
+        }
+      }
+
+      .solution {
+        .textBox {
+          visibility: visible;
+          opacity: 1;
+          overflow: unset;
+          pointer-events: none;
+        }
+      }
+    }
 
     .choiceItem {
       padding-top: 15px;
       padding-bottom: 15px;
+      transition: all 0.25s ease;
+      opacity: 1;
+      max-width: 550px;
+      overflow: hidden;
 
       .iconBox {
         width: 60px;
         height: 62px;
+      }
+
+      .textBox {
+        width: unset;
+        max-width: 310px;
+
+        .choiseTitle {
+          font-size: 16px;
+        }
+
+        .choiseDescription {
+          font-size: 14px;
+          line-height: 18px;
+        }
       }
     }
 
@@ -208,8 +216,7 @@
     }
 
     .problem {
-      width: 600px;
-      left: 160px;
+      left: 60px;
       padding-right: 30px;
       justify-content: flex-start;
       flex-direction: row-reverse;
@@ -217,13 +224,12 @@
 
       .iconBox {
         margin-right: 0;
+        margin-left: 25px;
       }
     }
 
     .solution {
-      width: 600px;
-      right: 0px;
-      left: 280px;
+      right: unset;
       padding-right: 30px;
       padding-left: 30px;
       justify-content: flex-end;
@@ -232,10 +238,215 @@
         rgba(99, 205, 218, 0.4) 0%,
         rgba(255, 255, 255, 0) 100%
       );
+
+      .iconBox {
+        margin-left: 35px;
+      }
     }
   }
+}
 
-  .hideProblem {
-    width: 200px;
+@media screen and (max-width: 980px) {
+  .choiceItemContainer {
+    width: 700px;
+    padding: 0;
+
+    &.showProblem {
+      .problem {
+        width: 450px;
+      }
+    }
+
+    &.showSolution {
+      .problem {
+        width: 130px;
+      }
+    }
+
+    .choiceItem {
+      padding: 12px 24px;
+      max-width: 430px;
+
+      .iconBox {
+        width: 45px;
+        height: 47px;
+      }
+
+      .textBox {
+        max-width: 250px;
+
+        .choiseTitle {
+          font-size: 15px;
+        }
+
+        .choiseDescription {
+          font-size: 13px;
+          line-height: 16px;
+        }
+      }
+    }
+
+    .problem {
+      left: 90px;
+    }
+
+    .solution {
+      left: 230px;
+    }
+  }
+}
+
+@media screen and (max-width: 730px) {
+  .choiceItemContainer {
+    width: 550px;
+    height: 120px;
+
+    &.showProblem {
+      .problem {
+        width: 380px;
+        .textBox {
+          max-width: 250px;
+        }
+      }
+    }
+
+    &.showSolution {
+      .problem {
+        width: 130px;
+      }
+    }
+
+    .choiceItem {
+      max-width: 430px;
+
+      .iconBox {
+        width: 50px;
+        height: 52px;
+      }
+    }
+
+    .problem {
+      left: 50px;
+    }
+
+    .solution {
+      width: 350px;
+      left: 180px;
+
+      .textBox {
+        width: 230px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .choiceItemContainer {
+    width: 400px;
+    height: 100px;
+
+    &.showProblem {
+      .problem {
+        width: 350px;
+      }
+    }
+
+    &.showSolution {
+      .problem {
+        width: 120px;
+      }
+    }
+
+    .choiceItem {
+      .iconBox {
+        width: 40px;
+        height: 42px;
+        margin-left: 15px;
+      }
+
+      .textBox {
+        .choiseTitle {
+          font-size: 14px;
+        }
+
+        .choiseDescription {
+          font-size: 12px;
+          line-height: 14px;
+        }
+      }
+    }
+
+    .problem {
+      left: -20px;
+      width: 300px;
+
+      .textBox {
+        width: 230px;
+      }
+    }
+
+    .solution {
+      width: 300px;
+      left: 100px;
+
+      .textBox {
+        width: 230px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .choiceItemContainer {
+    width: 330px;
+    height: 110px;
+
+    &.showProblem {
+      .problem {
+        width: 290px;
+      }
+    }
+
+    &.showSolution {
+      .problem {
+        width: 100px;
+      }
+    }
+
+    .choiceItem {
+      .iconBox {
+        width: 35px;
+        height: 37px;
+      }
+
+      .textBox {
+        .choiseTitle {
+          font-size: 13px;
+        }
+
+        .choiseDescription {
+          font-size: 11px;
+          line-height: 14px;
+        }
+      }
+    }
+
+    .problem {
+      left: -30px;
+      width: 290px;
+
+      .textBox {
+        width: 160px;
+      }
+    }
+
+    .solution {
+      width: 270px;
+      left: 60px;
+
+      .textBox {
+        width: 160px;
+      }
+    }
   }
 }

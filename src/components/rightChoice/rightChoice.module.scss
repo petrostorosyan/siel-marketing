@@ -5,7 +5,6 @@
   @include regularBox(100%, unset, 200px, flex, flex-start, center, column);
   margin: 50px 0;
   transition: 0.5s;
-  border: 2px solid green;
 
   .sectionTitle {
     @include textStyle(
@@ -15,5 +14,10 @@
       var(--title-h2-height)
     );
     margin-bottom: 40px;
+    transition: 0.5s;
+  }
+
+  .choise {
+    @include regularBox(100%, unset, 100px, flex, flex-start, center, column);
   }
 }

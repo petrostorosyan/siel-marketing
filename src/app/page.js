@@ -11,11 +11,11 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <HeroSection />
-      {/* <SielInfo />
+      <SielInfo />
       <AboutUs />
       <OurServices />
       <Packages />
-      <Testimonials /> */}
+      <Testimonials />
       <RightChoice />
     </div>
   );

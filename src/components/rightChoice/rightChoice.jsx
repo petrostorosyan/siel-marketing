@@ -6,9 +6,11 @@ const RightChoice = () => {
   return (
     <section className={styles.choiceContainer}>
       <h2 className={styles.sectionTitle}>Why We’re the Right Choice</h2>
-      {rightChoiceData.map((item) => {
-        return <ChoiceItem key={item.id} data={item} />;
-      })}
+      <div className={styles.choise}>
+        {rightChoiceData.map((item) => {
+          return <ChoiceItem key={item.id} data={item} />;
+        })}
+      </div>
     </section>
   );
 };

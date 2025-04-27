@@ -43,10 +43,8 @@ const ChoiceItem = ({ data }) => {
           />
         </div>
         <div className={styles.textBox}>
-          <p className={styles.choiseTitle}>Problem:</p>
-          <p className={styles.choiseDescription}>
-            Lengthy turnaround times due to coordinating multiple contractors
-          </p>
+          <p className={styles.choiseTitle}>PROBLEM:</p>
+          <p className={styles.choiseDescription}>{data.problem}</p>
         </div>
       </div>
 
@@ -65,10 +63,7 @@ const ChoiceItem = ({ data }) => {
       <div className={`${styles.solution} ${styles.choiceItem}`}>
         <div className={styles.textBox}>
           <p className={styles.choiseTitle}>SOLUTION:</p>
-          <p className={styles.choiseDescription}>
-            Our agency provides quick turnaround times with centralized project
-            management.
-          </p>
+          <p className={styles.choiseDescription}>{data.solution}</p>
         </div>
         <div className={styles.iconBox}>
           <Image
