@@ -1,0 +1,36 @@
+@use "../../../styles/mixins" as *;
+@use "../../../styles/variables" as *;
+
+.offerContainer {
+  @include regularBox(100%, unset, 30px, flex, center, center);
+  transition: 0.5s;
+
+  .text {
+    width: 675px;
+    height: 100%;
+    text-align: center;
+    @include textStyle(20px, $black-color, 600, 20px);
+    transition: 0.5s;
+  }
+}
+
+/* <---------------------------------  Media  --------------------------------> */
+
+@media screen and (max-width: 760px) {
+  .offerContainer {
+    .text {
+      width: 500px;
+      font-size: 18px;
+    }
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .offerContainer {
+    padding: 0 20px;
+    .text {
+      width: 100%;
+      font-size: 16px;
+    }
+  }
+}

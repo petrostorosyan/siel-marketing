@@ -1,6 +1,7 @@
 import { rightChoiceData } from "@/services/rightChoice/rightChoiceData";
 import ChoiceItem from "./choiceItem/choiceItem";
 import styles from "./rightChoice.module.scss";
+import WeOffer from "./WeOffer/WeOffer";
 
 const RightChoice = () => {
   return (
@@ -11,6 +12,7 @@ const RightChoice = () => {
           return <ChoiceItem key={item.id} data={item} />;
         })}
       </div>
+      <WeOffer />
     </section>
   );
 };
