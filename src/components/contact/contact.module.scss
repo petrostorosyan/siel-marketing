@@ -1,0 +1,142 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+
+.contactContainer {
+  @include regularBox(100%, unset, 200px, flex, center, center);
+  transition: 0.5s;
+  border: 1px solid #000;
+
+  .contactContent {
+    @include regularBox(1100px, unset, 200px, flex, space-between, center);
+    border-radius: 40px;
+    padding: 30px;
+    transition: 0.5s;
+    border: 1px solid $primary-color;
+
+    .buttonBox {
+      @include regularBox(100px, 390px, unset, flex, flex-start, flex-end);
+      border: 1px solid #000;
+
+      .talkButton {
+        color: $primary-color;
+        font-size: 20px;
+        transition: 0.5s;
+        border: unset;
+        background-color: transparent;
+        text-decoration: none;
+
+        &:hover {
+          color: $primary-hover-color;
+        }
+      }
+    }
+
+    .contactForm {
+      @include regularBox(
+        505px,
+        unset,
+        100px,
+        flex,
+        flex-start,
+        center,
+        column
+      );
+      transition: 0.5s;
+      border: 1px solid red;
+
+      .contactTitle {
+        font-size: var(--title-h2);
+        line-height: var(--title-h2-height);
+        color: $black-color;
+        margin-bottom: 50px;
+      }
+
+      .form {
+        @include regularBox(100%, unset, 50px, flex, center, center);
+        border: 1px solid #000;
+        position: relative;
+
+        .input {
+          width: 100%;
+          height: 55px;
+          padding-left: 15px;
+          padding-right: 80px;
+          font-size: 16px;
+          background-color: rgb(99, 205, 218, 0.4);
+          border-radius: 50px;
+          border: unset;
+        }
+
+        .submit {
+          width: 77px;
+          height: 55px;
+          position: absolute;
+          top: 0;
+          right: 0;
+          background-color: $primary-color;
+          border-radius: 50px;
+          border: unset;
+          cursor: pointer;
+          transition: 0.5s;
+
+          &:hover {
+            background-color: $primary-hover-color;
+          }
+
+          &::placeholder {
+            color: $black-color;
+          }
+        }
+      }
+    }
+
+    .imageBox {
+      width: 250px;
+      height: auto;
+      transition: 0.5s;
+
+      .image {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
+
+/* <---------------------------------  Media  --------------------------------> */
+
+@media screen and (max-width: 1170px) {
+  .contactContainer {
+    .contactContent {
+      width: 870px;
+
+      .buttonBox {
+        height: 370px;
+      }
+
+      .contactForm {
+        width: 410px;
+      }
+
+      .imageBox {
+        width: 220px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .contactContainer {
+    .contactContent {
+      width: 775px;
+
+      .contactForm {
+        width: 350px;
+      }
+
+      .imageBox {
+        width: 200px;
+      }
+    }
+  }
+}
