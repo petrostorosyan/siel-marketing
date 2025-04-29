@@ -2,6 +2,7 @@
 @use "../../../styles/variables" as *;
 
 .offerContainer {
+  margin-top: 10px;
   @include regularBox(100%, unset, 30px, flex, center, center);
   transition: 0.5s;
 

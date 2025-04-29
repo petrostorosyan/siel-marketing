@@ -35,12 +35,15 @@ const Contact = () => {
               onChange={(e) => setEmail(e.target.value)}
             />
             <button type="submit" className={styles.submit}>
-              <Image
-                width={32}
-                height={38}
-                src={"/images/icons/button-right-arrow.svg"}
-                alt="right-arrow"
-              />
+              <div className={styles.iconBox}>
+                <Image
+                  width={32}
+                  height={38}
+                  src={"/images/icons/button-right-arrow.svg"}
+                  alt="right-arrow"
+                  className={styles.icon}
+                />
+              </div>
             </button>
           </form>
         </div>
