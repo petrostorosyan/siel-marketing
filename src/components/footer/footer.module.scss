@@ -1,0 +1,21 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.footerContainer {
+    @include regularBox(100%, unset, 100px, flex, center, center);
+    background-color: $black-color;
+
+    .footerContent {
+        @include regularBox(600px, unset, 100px, flex, flex-start, center, column);
+        padding: 40px;
+        border: 1px solid #fff;
+
+        .footerTitle {
+            @include textStyle(22px, #fff, 500, 20px);
+        }
+
+        .iconsBox {
+            @include regularBox(180px, unset, 100px, flex, space-between, center);
+        }
+    }
+}

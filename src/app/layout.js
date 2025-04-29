@@ -1,3 +1,4 @@
+import Footer from "@/components/footer/footer";
 import "./globals.scss";
 import Header from "@/components/header/header";
 import { Lexend } from "next/font/google";
@@ -15,6 +16,7 @@ export default function RootLayout({ children }) {
       <body className={`${lexend.className}`}>
         <Header />
         <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );
