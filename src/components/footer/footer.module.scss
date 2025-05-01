@@ -8,6 +8,7 @@
   .footerContent {
     @include regularBox(420px, unset, 100px, flex, flex-start, center, column);
     padding: 40px;
+    transition: 0.5s;
 
     .footerTitle {
       @include textStyle(22px, #fff, 500, 20px);
@@ -21,6 +22,7 @@
 
     .privacyBlock {
       @include regularBox(320px, 22px, unset, flex, space-between, center);
+      transition: 0.5s;
 
       .line {
         width: 2px;
@@ -32,6 +34,7 @@
       .link {
         @include textStyle(18px, #fff, 300, 20px);
         text-decoration: none;
+        transition: 0.5s;
       }
     }
 
@@ -39,6 +42,38 @@
       @include regularBox(100%, 22px, unset, flex, center, center);
       margin-top: 30px;
       @include textStyle(18px, #fff, 300, 20px);
+      transition: 0.5s;
+    }
+  }
+}
+
+/* <---------------------------------  Media  --------------------------------> */
+
+@media screen and (max-width: 600px) {
+  .footerContainer {
+    .footerContent {
+      padding: 30px;
+      padding-bottom: 40px;
+
+      .privacyBlock {
+        width: 290px;
+        .link {
+          font-size: 16px;
+        }
+      }
+
+      .copyright {
+        margin-top: 30px;
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .footerContainer {
+    .footerContent {
+      width: 100%;     
     }
   }
 }

@@ -28,11 +28,14 @@ const FixedButtons = () => {
   return (
     <div className={styles.fixedButtonsContainer}>
       {toTop && (
+        <>
         <button className={styles.scrollTop} onClick={scrollTop}>
           <Image width={50} height={50} src={"/images/icons/to-top-icon.webp"} alt="to-top" />
         </button>
-      )}
       <ChatBot />
+        </>
+        
+      )}
     </div>
   );
 };

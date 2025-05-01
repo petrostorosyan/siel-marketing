@@ -1,88 +1,121 @@
-"use client";
+'use client';
 
-import styles from "./chatBot.module.scss";
 import { useEffect, useRef, useState } from 'react';
+import styles from './chatBot.module.scss';
 
-const ChatBot = () => {
-  const [active, setActive] = useState(false);
-  const messageInputRef = useRef(null);
+export default function ChatWidget() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [messages, setMessages] = useState([]);
+  const [input, setInput] = useState('');
   const chatBodyRef = useRef(null);
 
-  const toggleChat = () => setActive(true);
-  const closeChat = () => setActive(false);
-
-  const addMessage = (text, sender = "bot") => {
-    const div = document.createElement("div");
-    div.className = `${styles.message} ${styles[sender]}`;
-    const bubble = document.createElement("div");
-    bubble.className = styles.bubble;
-    bubble.textContent = text;
-    div.appendChild(bubble);
-    chatBodyRef.current?.appendChild(div);
-    chatBodyRef.current?.scrollTo(0, chatBodyRef.current.scrollHeight);
-  };
-
-  const sendWelcomeMessage = () => {
-    addMessage(
-      "Welcome to SIEL Marketing! 🚀 I’m Katu, your assistant. How can I help you today? 🤝",
-      "bot"
-    );
-    messageInputRef.current?.focus();
-  };
-
   useEffect(() => {
-    if (active) {
-      setTimeout(sendWelcomeMessage, 100);
+    if (isOpen && messages.length === 0) {
+      addMessage("Welcome to SIEL Marketing! 🚀 I’m Katu, your assistant. How can I help you today? 🤝", 'bot');
     }
-  }, [active]);
+  }, [isOpen]);
 
-  const handleSend = () => {
-    const value = messageInputRef.current?.value.trim();
-    if (value) {
-      addMessage(value, "user");
-      messageInputRef.current.value = "";
-      // Simulate bot response
-      setTimeout(() => {
-        addMessage("🤖 I'm still learning. Stay tuned!", "bot");
-      }, 1000);
+  const addMessage = (content, sender) => {
+    setMessages(prev => [...prev, { content, sender }]);
+    setTimeout(() => {
+      if (chatBodyRef.current) {
+        chatBodyRef.current.scrollTop = chatBodyRef.current.scrollHeight;
+      }
+    }, 0);
+  };
+
+  const handleSend = async () => {
+    if (!input.trim()) return;
+
+    const userMessage = input.trim();
+    addMessage(userMessage, 'user');
+    setInput('');
+
+    const typingId = Symbol('typing');
+    addMessage(typingId, 'typing');
+
+    try {
+      const res = await fetch('https://botkatu-d7f7cc122fb6.herokuapp.com/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          message: userMessage,
+          user_id: localStorage.getItem('user_id') || null,
+        }),
+      });
+
+      const data = await res.json();
+      if (!localStorage.getItem('user_id')) {
+        localStorage.setItem('user_id', data.user_id);
+      }
+
+      setMessages(prev => prev.filter(m => m.sender !== 'typing'));
+      addMessage(data.response, 'bot');
+    } catch {
+      setMessages(prev => prev.filter(m => m.sender !== 'typing'));
+      addMessage("I'm sorry, I couldn't process your request. Please try again later.", 'bot');
     }
   };
 
-  const handleKeyPress = (e) => {
-    if (e.key === "Enter") {
-      handleSend();
-    }
-  };
   return (
     <>
-      <div className={styles.chatButton} onClick={toggleChat}>
+      <div className={styles.chatButton} onClick={() => setIsOpen(true)}>
         <div className={styles.chatHoverText}>Chat with Katu</div>
-        <img
-          src="https://botkatu-d7f7cc122fb6.herokuapp.com/static/logo.png"
-          alt="Chat Logo"
-        />
+        <img src="https://botkatu-d7f7cc122fb6.herokuapp.com/static/logo.png" alt="Chat Logo" />
       </div>
 
-      <div className={`${styles.chatContainer} ${active ? styles.active : ""}`}>
-        <div className={styles.chatHeader}>
-          Chat with Katu
-          <span className={styles.closeButton} onClick={closeChat}>
-            X
-          </span>
+      {isOpen && (
+        <div className={`${styles.chatContainer} ${styles.active}`}>
+          <div className={styles.chatHeader}>
+            Chat with Katu
+            <span className={styles.closeButton} onClick={() => setIsOpen(false)}>X</span>
+          </div>
+
+          <div className={styles.chatBody} ref={chatBodyRef}>
+            {messages.map((msg, index) =>
+              msg.sender === 'typing' ? (
+                <div key={index} className={`${styles.message} ${styles.bot}`}>
+                  <div className={styles.typingIndicator}>
+                    <span></span><span></span><span></span>
+                  </div>
+                </div>
+              ) : (
+                <div
+                  key={index}
+                  className={`${styles.message} ${styles[msg.sender]}`}
+                >
+                  {msg.sender === 'bot' && (
+                    <img
+                      className={styles.avatar}
+                      src="https://botkatu-d7f7cc122fb6.herokuapp.com/static/logo.png"
+                      alt="Bot"
+                    />
+                  )}
+                  <div className={styles.bubble}>{msg.content}</div>
+                  {msg.sender === 'user' && (
+                    <img
+                      className={styles.avatar}
+                      src="https://botkatu-d7f7cc122fb6.herokuapp.com/static/user-avatar.png"
+                      alt="User"
+                    />
+                  )}
+                </div>
+              )
+            )}
+          </div>
+
+          <div className={styles.chatFooter}>
+            <input
+              type="text"
+              value={input}
+              onChange={e => setInput(e.target.value)}
+              onKeyPress={e => e.key === 'Enter' && handleSend()}
+              placeholder="Type your message..."
+            />
+            <button onClick={handleSend}>Send</button>
+          </div>
         </div>
-        <div className={styles.chatBody} ref={chatBodyRef}></div>
-        <div className={styles.chatFooter}>
-          <input
-            type="text"
-            placeholder="Type your message..."
-            ref={messageInputRef}
-            onKeyPress={handleKeyPress}
-          />
-          <button onClick={handleSend}>Send</button>
-        </div>
-      </div>
+      )}
     </>
   );
-};
-
-export default ChatBot;
+}
