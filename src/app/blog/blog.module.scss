@@ -2,39 +2,92 @@
 @use "../../styles/variables" as *;
 
 .blogContainer {
-    margin-top: 60px;
-    @include regularBox(100%, unset, 200px, flex, flex-start, center, column);
-    border: 1px solid #000;
+  margin-top: 60px;
+  @include regularBox(100%, unset, 200px, flex, flex-start, center, column);
+  border: 1px solid #000;
 
-    .pageTitle {
-        @include textStyle(var(--title-h2), $black-color, 700, var(--title-h2-height));
-        margin-bottom: 10px;
-    }
+  .pageTitle {
+    @include textStyle(
+      var(--title-h2),
+      $black-color,
+      700,
+      var(--title-h2-height)
+    );
+    margin-bottom: 10px;
+  }
 
-    .description {
-        width: 840px;
-        min-height: 20px;
-        @include textStyle(16px, $black-color, 300, 16px);
-        text-align: center;
-    }
+  .description {
+    width: 840px;
+    min-height: 20px;
+    @include textStyle(16px, $black-color, 300, 24px);
+    text-align: center;
+  }
 
-    .colorsBlogContent {
-        width: 1170px;
-        height: 640px;
-        margin-top: 50px;
-        margin-bottom: 95px;
-        border-radius: 33px;
-        border: 3px solid $black-color;
-        background-image: url("/images/blog/blog-primary-pic.webp");
-        position: relative;
+  .colorsBlogContent {
+    width: 1170px;
+    height: 640px;
+    margin-top: 50px;
+    margin-bottom: 95px;
+    border-radius: 33px;
+    border: 3px solid $black-color;
+    background-image: url("/images/blog/blog-primary-pic.webp");
+    position: relative;
 
-        .colorsBlogInfo {
-            position: absolute;
-            top: 20px;
-            right: 50px;
-            width: 370px;
-            height: 500px;
-            border: 1px solid red;
+    .colorsBlogInfo {
+      position: absolute;
+      top: 55px;
+      right: 65px;
+      @include regularBox(
+        350px,
+        520px,
+        unset,
+        flex,
+        flex-start,
+        flex-start,
+        column
+      );
+
+      .infoTitle {
+        @include textStyle(80px, $black-color, 500, 75px);
+        background: linear-gradient(
+          to bottom, 
+          rgba(48, 57, 82, 1) 0%,
+          rgba(121, 139, 160, 1) 100%
+        );
+      
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 35px;
+      }
+
+      .infoDescription {
+        width: 100%;
+        min-height: 30px;
+        font-size: 18px;
+        font-weight: 300;
+        line-height: 25px;
+        color: $black-color;
+        margin-bottom: 30px;
+      }
+
+      .readingButton {
+        padding: 12px 30px;
+        background-color: $black-color;
+        font-size: 20px;
+        font-weight: 600;
+        color: #fff;
+        transition: 0.5s;
+        border-radius: 6px;
+        text-decoration: none;
+        cursor: pointer;
+        @include regularBox(max-content, 62px, unset, flex, center, center);
+
+        &:hover {
+            background-color: #798BA0;
         }
+      }
+      
     }
+  }
 }
