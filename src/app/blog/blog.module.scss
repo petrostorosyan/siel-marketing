@@ -4,7 +4,6 @@
 .blogContainer {
   margin-top: 60px;
   @include regularBox(100%, unset, 200px, flex, flex-start, center, column);
-  border: 1px solid #000;
 
   .pageTitle {
     @include textStyle(
@@ -23,7 +22,6 @@
     @include textStyle(16px, $black-color, 300, 24px);
     text-align: center;
     transition: 0.5s;
-    border: 1px solid #000;
   }
 
   .colorsBlogContent {
@@ -52,7 +50,6 @@
         column
       );
       transition: 0.5s;
-      border: 1px solid red;
 
       .infoTitle {
         @include textStyle(80px, $black-color, 500, 75px);
@@ -106,7 +103,6 @@
       padding-top: 0;
       display: none;
       transition: 0.5s;
-      border: 1px solid green;
     }
   }
 }
@@ -208,7 +204,6 @@
         .infoTitle {
           font-size: 34px;
           line-height: 34px;
-          margin-bottom: 10px;
           text-align: center;
           color: white;
           background: unset;
@@ -240,11 +235,11 @@
           justify-content: space-between;
           align-items: flex-start;
           margin-top: 15px;
-          border: 1px solid red;
 
           .uploadTime {
             font-size: 14px;
             color: #424242;
+            font-weight: 300;
           }
 
           .readMoreBtn {
@@ -264,11 +259,71 @@
   .blogContainer {
     .colorsBlogContent {
       width: 380px;
+      height: 580px;
       background-position: 15px 15px;
       background-size: 92%;
 
+      .colorsBlogInfo {
+        height: 55px;
+        width: 180px;
+        top: 8.5%;
+
+        .infoTitle {
+          font-size: 24px;
+          line-height: 24px;
+        }
+      }
+
       .mobileBlogInfo {
         top: 380px;
+        padding: 15px;
+        padding-top: 0;
+
+        .mobileInfoTitle {
+          margin-bottom: 10px;
+        }
+
+        .mobileInfoTitle,
+        .mobileInfoDescription {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .blogContainer {
+    padding: 0 20px;
+
+    .description {
+      font-size: 14px;
+      line-height: 22px;
+    }
+
+    .colorsBlogContent {
+      width: 330px;
+      height: 560px;
+      margin-top: 40px;
+      background-position: 12px 12px;
+      background-size: 93%;
+
+      .colorsBlogInfo {
+        height: 50px;
+        width: 150px;
+        top: 8%;
+
+        .infoTitle {
+          font-size: 20px;
+          line-height: 22px;
+        }
+      }
+
+      .mobileBlogInfo {
+        top: 340px;
+        height: 192px;
+        padding: 12px;
+        padding-top: 0;
       }
     }
   }
