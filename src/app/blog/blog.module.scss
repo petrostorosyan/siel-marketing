@@ -96,6 +96,18 @@
         }
       }
     }
+
+    .mobileBlogInfo {
+      width: 100%;
+      height: 175px;
+      position: absolute;
+      top: 500px;
+      padding: 30px;
+      padding-top: 0;
+      display: none;
+      transition: 0.5s;
+      border: 1px solid green;
+    }
   }
 }
 
@@ -180,16 +192,29 @@
   .blogContainer {
     .colorsBlogContent {
       width: 500px;
-      height: 570px;
+      height: 700px;
       // background-size: 88%;
       background-image: url("/images/blog/mobile-blog-primary-pic.webp");
       background-position: 30px 30px;
 
       .colorsBlogInfo {
-        // width: 270px;
-        height: 100px;
-        // top: 20px;
-        // right: 25px;
+        height: 75px;
+        width: 240px;
+        top: 11%;
+        left: 50%;
+        right: unset;
+        transform: translate(-50%, -50%);
+
+        .infoTitle {
+          font-size: 34px;
+          line-height: 34px;
+          margin-bottom: 10px;
+          text-align: center;
+          color: white;
+          background: unset;
+          -webkit-text-fill-color: unset;
+          margin-bottom: 0;
+        }
 
         .infoDescription {
           display: none;
@@ -198,6 +223,52 @@
         .readingButton {
           display: none;
         }
+      }
+
+      .mobileBlogInfo {
+        display: flex;
+        flex-direction: column;
+
+        .mobileInfoTitle {
+          margin-bottom: 15px;
+        }
+
+        .readMoreBox {
+          width: 100%;
+          height: 80px;
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          margin-top: 15px;
+          border: 1px solid red;
+
+          .uploadTime {
+            font-size: 14px;
+            color: #424242;
+          }
+
+          .readMoreBtn {
+            color: #fff;
+            background-color: $primary-color;
+            border: unset;
+            border-radius: 30px;
+            padding: 12px 18px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .blogContainer {
+    .colorsBlogContent {
+      width: 380px;
+      background-position: 15px 15px;
+      background-size: 92%;
+
+      .mobileBlogInfo {
+        top: 380px;
       }
     }
   }
