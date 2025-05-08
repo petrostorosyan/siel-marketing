@@ -105,6 +105,29 @@
       transition: 0.5s;
     }
   }
+
+  .otherArticlesContainer {
+    @include regularBox(100%, unset, 100px, flex, center, flex-start);
+    border: 1px solid #000;
+    margin-bottom: 50px;
+
+    .otherArticles {
+      @include regularBox(1170px, unset, 100px, flex, flex-start, flex-start, column);
+      border: 1px solid red;
+
+      .sectionTitle {
+        @include textStyle(28px, $black-color, bold, 38px);
+        margin-bottom: 30px;
+      }
+
+      .horizontal {
+        @include regularBox(100%, unset, 100px, flex, center, flex-start);
+        border: 1px solid green;
+      }
+    }
+
+    
+  }
 }
 
 /* <---------------------------------  Media  --------------------------------> */

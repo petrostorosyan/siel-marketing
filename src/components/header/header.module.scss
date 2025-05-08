@@ -10,17 +10,12 @@
     @include regularBox(1100px, 100%, unset, flex, space-between, center);
     transition: 0.5s;
 
-    .navigationBlock {
-      @include regularBox(800px, 100%, unset, flex, space-between, center);
-      transition: 0.5s;
-
-      .faqButton {
-        border-radius: 50px;
-        background-color: $primary-color;
-        color: $black-color;
-        text-decoration: none;
-        @include regularBox(71px, 40px, unset, flex, center, center);
-      }
+    .faqButton {
+      border-radius: 50px;
+      background-color: $primary-color;
+      color: $black-color;
+      text-decoration: none;
+      @include regularBox(71px, 40px, unset, flex, center, center);
     }
 
     .mobileMenu {
@@ -39,10 +34,6 @@
   .headerWrapper {
     .headerContent {
       width: 850px;
-
-      .navigationBlock {
-        width: 600px;
-      }
     }
   }
 }
@@ -51,10 +42,6 @@
   .headerWrapper {
     .headerContent {
       width: 770px;
-
-      .navigationBlock {
-        width: 565px;
-      }
     }
   }
 }
@@ -65,7 +52,8 @@
     .headerContent {
       width: 100%;
       padding: 0 20px;
-      .navigationBlock {
+
+      .faqButton {
         display: none;
       }
 

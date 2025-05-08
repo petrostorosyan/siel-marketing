@@ -1,5 +1,6 @@
 import Link from "next/link";
 import styles from "./blog.module.scss";
+import HorizontalCarousel from "./horizontalCarousel/horizontalCarousel";
 
 export default function LikeButton() {
   return (
@@ -39,6 +40,13 @@ export default function LikeButton() {
             <p className={styles.uploadTime}>10h ago</p>
             <button className={styles.readMoreBtn}>Read More</button>
           </div>
+        </div>
+      </div>
+
+      <div className={styles.otherArticlesContainer}>
+        <div className={styles.otherArticles}>
+          <h4 className={styles.sectionTitle}>Other Articles</h4>
+          <div className={styles.horizontal}><HorizontalCarousel /></div>
         </div>
       </div>
     </div>

@@ -11,15 +11,8 @@ const workSans = Work_Sans({ subsets: ["latin"], weight: ["variable"] });
 const Navigation = () => {
   const router = useRouter();
   const path = usePathname();
-  const [navigationData, setNavigationData] = useState(navData);
 
-  useEffect(() => {
-    if (path == "/blog") {
-      setNavigationData(blogNavData);
-    } else {
-      setNavigationData(navData);
-    }
-  }, [path]);
+  const navigationData = path === "/blog" ? blogNavData : navData;
 
   const handleScrollToSection = (id) => {
     const section = document.getElementById(id);
@@ -48,9 +41,16 @@ const Navigation = () => {
   }, [path]);
 
   return (
-    <div className={styles.navigationWrapper}>
+    <div
+      className={
+        path != "/blog" ? styles.navigationWrapper : styles.blogNavigation
+      }
+    >
       {navigationData.map((item) => (
-        <nav key={item.id} className={`${styles.navItem} ${workSans.className}`}>
+        <nav
+          key={item.id}
+          className={`${styles.navItem} ${workSans.className}`}
+        >
           {item.scrollTo ? (
             <a
               href="#"

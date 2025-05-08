@@ -11,15 +11,18 @@ import useScreenSize from "@/functions/hooks/useScreenSize";
 
 export default function Header({ lng }) {
   const { width: screenSize, height } = useScreenSize();
-  const [logoSize, setLogoSize] = useState({ width: undefined, height: undefined });
+  const [logoSize, setLogoSize] = useState({
+    width: undefined,
+    height: undefined,
+  });
 
   useEffect(() => {
     if (screenSize < 600) {
-      setLogoSize({ width: 130, height: 60 })
+      setLogoSize({ width: 130, height: 60 });
     } else {
-      setLogoSize({ width: 169, height: 86 })
+      setLogoSize({ width: 169, height: 86 });
     }
-  }, [screenSize])
+  }, [screenSize]);
 
   return (
     <header>
@@ -30,12 +33,10 @@ export default function Header({ lng }) {
       >
         <div className={styles.headerContent}>
           <Logo width={logoSize.width} height={logoSize.height} />
-          <div className={styles.navigationBlock}>
-            <Navigation />
-            <Link href={"/faq"} className={styles.faqButton}>
-              FAQ
-            </Link>
-          </div>
+          <Navigation />
+          <Link href={"/faq"} className={styles.faqButton}>
+            FAQ
+          </Link>
           <div className={styles.mobileMenu}>
             <MobileMenu />
           </div>
