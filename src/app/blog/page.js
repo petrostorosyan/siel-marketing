@@ -1,6 +1,7 @@
 import Link from "next/link";
 import styles from "./blog.module.scss";
 import HorizontalCarousel from "./horizontalCarousel/horizontalCarousel";
+import VerticalCarousel from "./verticalCarousel/verticalCarousel";
 
 export default function LikeButton() {
   return (
@@ -47,6 +48,7 @@ export default function LikeButton() {
         <div className={styles.otherArticles}>
           <h4 className={styles.sectionTitle}>Other Articles</h4>
           <div className={styles.horizontal}><HorizontalCarousel /></div>
+          <div className={styles.vertical}><VerticalCarousel /></div>
         </div>
       </div>
     </div>

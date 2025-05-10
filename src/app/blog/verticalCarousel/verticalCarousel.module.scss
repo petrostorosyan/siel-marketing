@@ -3,6 +3,7 @@
 
 .carouselContainer {
   width: 100%;
+  margin-top: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,13 +18,14 @@
 }
 
 .carouselWrapper {
-  width: 1150px;
+  width: 500px;
   height: 520px;
   transition: 0.5s;
 
   .slide {
-    @include regularBox(300px, 520px, unset, flex, flex-start, center, column);
-    border-radius: 40px;
+    @include regularBox(100%, 120px, unset, flex, space-between, center);
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 2px 0px;
+    border-radius: 30px;
     position: relative;
     overflow: hidden;
     padding: 12px;
@@ -44,60 +46,53 @@
     }
 
     .imageBox {
-      width: 100%;
-      height: 250px;
+      width: 200px;
+      height: 125px;
 
       .image {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        border-radius: 30px;
+        border-radius: 18px;
       }
     }
 
     .descriptionBox {
       @include regularBox(
+        calc(100% - 220px),
         100%,
-        220px,
         unset,
         flex,
         flex-start,
         flex-start,
         column
       );
-      margin-top: 15px;
-
-      .date {
-        font-size: 14px;
-      }
 
       .descTitle {
         width: 100%;
-        height: 75px;
-        margin-top: 10px;
-        font-size: 21px;
-        line-height: 23px;
+        height: 40px;
+        font-size: 16px;
+        font-weight: 600;
         white-space: normal;
         display: -webkit-box;
         overflow: hidden;
         text-overflow: ellipsis;
-        line-clamp: 3;
-        -webkit-line-clamp: 3;
+        line-clamp: 2;
+        -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
       }
 
       .description {
         width: 100%;
-        height: 110px;
+        height: 75px;
         margin-top: 10px;
-        font-size: 16px;
-        line-height: 20px;
+        font-size: 14px;
         white-space: normal;
         display: -webkit-box;
         overflow: hidden;
         text-overflow: ellipsis;
-        line-clamp: 5;
-        -webkit-line-clamp: 5;
+        line-clamp: 4;
+        -webkit-line-clamp: 4;
         -webkit-box-orient: vertical;
       }
     }
@@ -109,8 +104,8 @@
   border: none;
   cursor: pointer;
   padding: 0;
-  width: 70px;
-  height: 70px;
+  width: 55px;
+  height: 55px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -126,64 +121,78 @@
 }
 
 .prev {
-  left: -70px;
-  transform: rotate(180deg);
+  bottom: -60px;
+  transform: rotate(90deg);
 }
 
 .next {
-  right: -70px;
+  top: -60px;
+  transform: rotate(270deg);
 }
 
 /* <---------------------------------  Media  --------------------------------> */
 
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 550px) {
   .carouselWrapper {
-    width: 800px;
-  }
-
-  .navButton {
-    width: 50px;
-    height: 50px;
-  }
-
-  .prev {
-    left: -55px;
-  }
-
-  .next {
-    right: -55px;
-  }
-}
-
-@media screen and (max-width: 1000px) {
-  .carouselWrapper {
-    width: 590px;
-    height: 450px;
+    width: 380px;
 
     .slide {
-      height: 440px;
+      height: 140px;
 
       .imageBox {
-        height: 180px;
+        width: 150px;
+        height: 125px;
       }
 
       .descriptionBox {
-        .date {
-          font-size: 13px;
+        width: calc(100% - 160px);
+      }
+    }
+  }
+
+  .navButton {
+    width: 40px;
+    height: 40px;
+  }
+
+  .prev {
+    bottom: -45px;
+  }
+
+  .next {
+    top: -45px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .carouselWrapper {
+    width: 330px;
+    height: 450px;
+
+    .slide {
+      height: 100px;
+
+      .imageBox {
+        width: 130px;
+        height: 100px;
+
+        .image {
+          border-radius: 10px;
         }
+      }
+
+      .descriptionBox {
+        width: calc(100% - 140px);
+        margin-top: 7px;
 
         .descTitle {
-          height: 72px;
-          font-size: 19px;
-          line-height: 22px;
+          height: 58px;
         }
 
         .description {
-          height: 112px;
-          font-size: 14px;
-          line-height: 18px;
-          line-clamp: 6;
-          -webkit-line-clamp: 6;
+          margin-top: 7px;
+          line-clamp: 3;
+          -webkit-line-clamp: 3;
         }
       }
     }

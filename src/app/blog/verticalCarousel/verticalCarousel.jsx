@@ -1,33 +1,22 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import styles from "./horizontalCarousel.module.scss";
+import styles from "./verticalCarousel.module.scss";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 import { blogsData } from "@/services/blogs/blogsData";
-import useScreenSize from "@/functions/hooks/useScreenSize";
 
-const HorizontalCarousel = () => {
+const VerticalCarousel = () => {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
   const [isNavReady, setIsNavReady] = useState(false);
-  const [sliedesCount, setSliedesCount] = useState();
-  const { width: screenSize, height } = useScreenSize();
 
   useEffect(() => {
     setIsNavReady(true);
   }, []);
-
-  useEffect(() => {
-    if (screenSize<1300) {
-      setSliedesCount(2);
-    } else {
-      setSliedesCount(3);
-    }
-  }, [screenSize]);
 
   return (
     <div className={styles.carouselContainer}>
@@ -45,9 +34,10 @@ const HorizontalCarousel = () => {
         {isNavReady && (
           <Swiper
             modules={[Navigation]}
-            slidesPerView={sliedesCount}
+            direction={'vertical'}
+            slidesPerView={3}
             loop={true}
-            spaceBetween={50}
+            spaceBetween={30}
             className={styles.carouselWrapper}
             navigation={{
               prevEl: prevRef.current,
@@ -63,15 +53,14 @@ const HorizontalCarousel = () => {
                 <SwiperSlide key={item.id} className={styles.slide}>
                   <div className={styles.imageBox}>
                     <Image
-                      width={360}
-                      height={250}
+                      width={200}
+                      height={125}
                       src={item.imageSource}
                       alt={item.title}
                       className={styles.image}
                     />
                   </div>
                   <div className={styles.descriptionBox}>
-                    <p className={styles.date}>{item.uploadDate}</p>
                     <p className={styles.descTitle}>{item.title}</p>
                     <p className={styles.description}>{item.description}</p>
                   </div>
@@ -95,4 +84,4 @@ const HorizontalCarousel = () => {
   );
 };
 
-export default HorizontalCarousel;
+export default VerticalCarousel;

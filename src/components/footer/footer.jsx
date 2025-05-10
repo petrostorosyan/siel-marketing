@@ -6,7 +6,7 @@ import FixedButtons from "./fixedButtons/fixedButtons";
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   return (
-    <div className={styles.footerContainer}>
+    <div id="contact" className={styles.footerContainer}>
       <div className={styles.footerContent}>
         <h4 className={styles.footerTitle}>Contact Us</h4>
         <div className={styles.iconsBox}>

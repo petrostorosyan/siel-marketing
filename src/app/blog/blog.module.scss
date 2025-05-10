@@ -108,25 +108,35 @@
 
   .otherArticlesContainer {
     @include regularBox(100%, unset, 100px, flex, center, flex-start);
-    border: 1px solid #000;
     margin-bottom: 50px;
 
     .otherArticles {
-      @include regularBox(1170px, unset, 100px, flex, flex-start, flex-start, column);
-      border: 1px solid red;
+      @include regularBox(
+        1170px,
+        unset,
+        100px,
+        flex,
+        flex-start,
+        flex-start,
+        column
+      );
+      transition: 0.5s;
 
       .sectionTitle {
         @include textStyle(28px, $black-color, bold, 38px);
         margin-bottom: 30px;
+        transition: 0.5s;
       }
 
-      .horizontal {
+      .horizontal,
+      .vertical {
         @include regularBox(100%, unset, 100px, flex, center, flex-start);
-        border: 1px solid green;
+      }
+
+      .vertical {
+        display: none;
       }
     }
-
-    
   }
 }
 
@@ -161,6 +171,12 @@
           font-size: 18px;
           padding: 12px 22px;
         }
+      }
+    }
+
+    .otherArticlesContainer {
+      .otherArticles {
+        width: 950px;
       }
     }
   }
@@ -201,6 +217,17 @@
           height: 48px;
           font-size: 16px;
           padding: 10px 18px;
+        }
+      }
+    }
+
+    .otherArticlesContainer {
+      .otherArticles {
+        width: 700px;
+
+        .sectionTitle {
+          font-size: 24px;
+          line-height: 34px;
         }
       }
     }
@@ -275,6 +302,21 @@
         }
       }
     }
+
+    .otherArticlesContainer {
+      margin-bottom: 80px;
+      .otherArticles {
+        width: 500px;
+
+        .horizontal {
+          display: none;
+        }
+
+        .vertical {
+          display: flex;
+        }
+      }
+    }
   }
 }
 
@@ -309,6 +351,17 @@
         .mobileInfoTitle,
         .mobileInfoDescription {
           font-size: 14px;
+        }
+      }
+    }
+
+    .otherArticlesContainer {
+      .otherArticles {
+        width: 380px;
+
+        .sectionTitle {
+          font-size: 20px;
+          line-height: 30px;
         }
       }
     }
@@ -347,6 +400,12 @@
         height: 192px;
         padding: 12px;
         padding-top: 0;
+      }
+    }
+
+    .otherArticlesContainer {
+      .otherArticles {
+        width: 330px;
       }
     }
   }

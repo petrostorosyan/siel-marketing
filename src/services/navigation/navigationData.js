@@ -22,6 +22,7 @@ export const navData = [
         id: 4,
         name: "Contact",
         link: "/contact-us",
+        scrollTo: "contact",
     },
     {
         id: 5,
@@ -40,6 +41,7 @@ export const blogNavData = [
         id: 2,
         name: "Contact",
         link: "/contact-us",
+        scrollTo: "contact",
     },
     {
         id: 3,
