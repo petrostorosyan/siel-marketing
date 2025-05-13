@@ -23,7 +23,7 @@ export default function LikeButton() {
             behind color choices in marketing design and how to use them
             strategically to inspire action.
           </p>
-          <Link href={"/"} className={styles.readingButton}>
+          <Link href={"/blog/colors-you-choose"} className={styles.readingButton}>
             Continue Reading
           </Link>
         </div>
