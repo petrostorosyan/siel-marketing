@@ -12,7 +12,7 @@ const Navigation = () => {
   const router = useRouter();
   const path = usePathname();
 
-  const navigationData = path === "/blog" ? blogNavData : navData;
+  const navigationData = path.startsWith("/blog") ? blogNavData : navData;
 
   const handleScrollToSection = (id) => {
     const section = document.getElementById(id);
@@ -43,7 +43,7 @@ const Navigation = () => {
   return (
     <div
       className={
-        path != "/blog" ? styles.navigationWrapper : styles.blogNavigation
+        path.startsWith("/blog") ? styles.blogNavigation :styles.navigationWrapper
       }
     >
       {navigationData.map((item) => (

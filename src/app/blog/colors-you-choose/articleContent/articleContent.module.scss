@@ -1,0 +1,119 @@
+@use "../../../../styles/mixins" as *;
+@use "../../../../styles/variables" as *;
+
+.articleContainer {
+  @include regularBox(100%, 100%, unset, flex, flex-start, flex-start, column);
+  box-shadow: 0 2px 6px 2px rgba(0, 0, 0, 0.15);
+  background-color: $white-color;
+  padding: 50px;
+
+  .uploadDate {
+    color: $black-color;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+
+  .pageTitle {
+    background: linear-gradient(rgb(48, 57, 82) 0%, rgb(121, 139, 160) 100%)
+      text;
+    -webkit-text-fill-color: transparent;
+    font-size: 42px;
+    line-height: 50px;
+    font-weight: 700;
+  }
+
+  .line {
+    width: 100%;
+    height: 0.2px;
+    margin: 20px 0;
+    background-color: rgb(48, 57, 82);
+    opacity: 0.2;
+  }
+
+  .description {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 300;
+    letter-spacing: 1px;
+  }
+
+  .subTitle {
+    color: black;
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin: 15px 0;
+  }
+
+  .lightWeightTitle {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    margin: 20px 0;
+  }
+
+  .textAndImage {
+    @include regularBox(100%, unset, 100px, flex, space-between, flex-start);
+
+    .textBox {
+      width: 56%;
+      min-height: 50px;
+
+      .text {
+        color: rgb(16, 21, 46);
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: 300;
+        letter-spacing: 1px;
+        margin-bottom: 10px;
+
+        &:nth-last-child(1) {
+          margin-bottom: 0;
+        }
+
+        .boldText {
+          display: inline-block;
+          color: rgb(16, 21, 46);
+          font-size: 16px;
+          line-height: 24px;
+          font-weight: 600;
+          letter-spacing: 1px;
+          margin-right: 10px;
+        }
+      }
+    }
+
+    .imageBox {
+      width: 40%;
+      min-height: 50px;
+
+      .image {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+
+  .centerImageBlock {
+    margin-top: 30px;
+    @include regularBox(100%, unset, 100px, flex, center, center);
+    gap: 10px;
+    border: 1px solid #000;
+
+    .imageBox {
+      width: 345px;
+      height: 235px;
+
+      .image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}
