@@ -8,6 +8,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 import { blogsData } from "@/services/blogs/blogsData";
+import Link from "next/link";
 
 const VerticalCarousel = () => {
   const prevRef = useRef(null);
@@ -34,7 +35,7 @@ const VerticalCarousel = () => {
         {isNavReady && (
           <Swiper
             modules={[Navigation]}
-            direction={'vertical'}
+            direction={"vertical"}
             slidesPerView={3}
             loop={true}
             spaceBetween={30}
@@ -51,19 +52,21 @@ const VerticalCarousel = () => {
             {blogsData.map((item) => {
               return (
                 <SwiperSlide key={item.id} className={styles.slide}>
-                  <div className={styles.imageBox}>
-                    <Image
-                      width={200}
-                      height={125}
-                      src={item.imageSource}
-                      alt={item.title}
-                      className={styles.image}
-                    />
-                  </div>
-                  <div className={styles.descriptionBox}>
-                    <p className={styles.descTitle}>{item.title}</p>
-                    <p className={styles.description}>{item.description}</p>
-                  </div>
+                  <Link href={item.link} className={styles.slideContent}>
+                    <div className={styles.imageBox}>
+                      <Image
+                        width={200}
+                        height={125}
+                        src={item.imageSource}
+                        alt={item.title}
+                        className={styles.image}
+                      />
+                    </div>
+                    <div className={styles.descriptionBox}>
+                      <p className={styles.descTitle}>{item.title}</p>
+                      <p className={styles.description}>{item.description}</p>
+                    </div>
+                  </Link>
                 </SwiperSlide>
               );
             })}

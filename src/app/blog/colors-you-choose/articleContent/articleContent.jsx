@@ -1,6 +1,7 @@
 import Image from "next/image";
 import styles from "./articleContent.module.scss";
 import { Key } from "@mui/icons-material";
+import PrimaryButton from "@/components/shared/logo/primaryButton/primaryButton";
 
 const colorsSparks = [
   {
@@ -51,17 +52,58 @@ const rightColorsChoose = [
 const centerImages = [
   {
     id: 1,
-    source: "/images/blog/colors-blog/center-blog-pic-1.webp"
+    source: "/images/blog/colors-blog/center-blog-pic-1.webp",
   },
   {
     id: 2,
-    source: "/images/blog/colors-blog/center-blog-pic-2.webp"
+    source: "/images/blog/colors-blog/center-blog-pic-2.webp",
   },
   {
     id: 3,
-    source: "/images/blog/colors-blog/center-blog-pic-3.webp"
+    source: "/images/blog/colors-blog/center-blog-pic-3.webp",
   },
-]
+];
+
+const driveConversions = [
+  {
+    id: 1,
+    boldWord: "Call-to-Action (CTA) Buttons:",
+    text: "Studies show that contrasting colors like red, orange, or green make CTAs more noticeable and increase click-through rates.",
+  },
+  {
+    id: 2,
+    boldWord: "Website Backgrounds:",
+    text: "Dark backgrounds feel premium but may reduce readability, while light backgrounds improve readability and user engagement.",
+  },
+  {
+    id: 3,
+    boldWord: "Product Packaging:",
+    text: "Color influences purchase decisions - 85% of shoppers say color is a primary reason for buying a product.",
+  },
+];
+
+const brandsExamples = [
+  {
+    id: 1,
+    boldWord: "Coca-Cola (Red):",
+    text: "Creates a sense of urgency and excitement, making it a perfect fit for an energetic, global brand.",
+  },
+  {
+    id: 2,
+    boldWord: "Facebook (Blue):",
+    text: "Enhances trust and reliability, making users feel comfortable spending time on the platform.",
+  },
+  {
+    id: 3,
+    boldWord: "McDonald’s (Red & Yellow):",
+    text: "Red stimulates appetite, and yellow conveys happiness, an ideal combination for fast food.",
+  },
+  {
+    id: 4,
+    boldWord: "Starbucks (Green):",
+    text: "Reflects health, sustainability, and a calming experience.",
+  },
+];
 
 const ArticleContent = () => {
   return (
@@ -133,10 +175,73 @@ const ArticleContent = () => {
         {centerImages.map((picture) => {
           return (
             <div key={picture.id} className={styles.imageBox}>
-              <Image width={345} height={245} src={picture.source} alt="center-pic" className={styles.image} />
+              <Image
+                width={345}
+                height={245}
+                src={picture.source}
+                alt="center-pic"
+                className={styles.image}
+              />
             </div>
-          )
+          );
         })}
+      </div>
+
+      <h6 className={styles.subTitle}>Using Colors to Drive Conversions</h6>
+      <p className={styles.description}>
+        Beyond branding, colors play a key role in user experience and
+        conversions. Here’s how to use them strategically:
+      </p>
+      <div className={styles.textBox}>
+        {driveConversions.map((elem) => {
+          return (
+            <p key={elem.id} className={styles.text}>
+              <b className={styles.boldText}>{elem.boldWord}</b>
+              {elem.text}
+            </p>
+          );
+        })}
+      </div>
+
+      <h6 className={styles.blockTitle} style={{marginTop: "40px"}}>
+        Examples of Brands Using Color Psychology Effectively
+      </h6>
+
+      <div className={styles.textBox}>
+        {brandsExamples.map((item) => {
+          return (
+            <p key={item.id} className={styles.text}>
+              <b className={styles.boldText}>{item.boldWord}</b>
+              {item.text}
+            </p>
+          );
+        })}
+      </div>
+
+      <h6 className={styles.blockTitle} style={{marginTop: "30px", marginBottom: "20px"}}>
+        Final Thoughts: Make Colors Work for You
+      </h6>
+
+      <p className={styles.description}>
+        Choosing the right colors isn’t just about aesthetics, it’s about
+        shaping perception, influencing behavior, and driving action. At SIEL
+        Marketing, we specialize in designing brand identities that resonate
+        with your audience. Whether you need a fresh logo, a color-coordinated
+        website, or a full-scale marketing strategy, our expert team is here to
+        bring your vision to life.
+      </p>
+
+      <p className={styles.description} style={{marginTop: "20px"}}>
+        Need help finding the perfect color palette for your brand? Let’s create
+        something unforgettable together.
+      </p>
+
+      <div className={styles.buttonBox}>
+        <PrimaryButton
+          title="Contact Us Today!"
+          color="black"
+          link="https://api.whatsapp.com/send/?phone=37495666833&text=Hello%2C+I%E2%80%99m+interested+in+learning+more+about+your+services+at+SIEL+Marketing.+Could+you+please+provide+details+on+how+your+packages+can+help+my+business+grow%3F+Thank+you%21&type=phone_number&app_absent=0"
+        />
       </div>
     </div>
   );

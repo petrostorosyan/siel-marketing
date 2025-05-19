@@ -1,0 +1,32 @@
+@use "../../../../styles/mixins" as *;
+@use "../../../../styles/variables" as *;
+
+.socialIconsContainer {
+  @include regularBox(100%, 100%, unset, flex, flex-start, center, column);
+
+  .share {
+    font-weight: bold;
+    font-size: 16px;
+    color: $black-color;
+    margin-bottom: 20px;
+  }
+
+  .iconsBox {
+    @include regularBox(100%, 80px, unset, flex, space-between, center);
+
+    .socialLink {
+      @include regularBox(54px, 54px, unset, flex, center, center);
+      text-decoration: none;
+      border-radius: 50%;
+      transition: 0.5s;
+      font-size: 20px;
+      border: 1px solid $black-color;
+      color: $black-color;
+
+      &:hover {
+        background-color: $black-color;
+        color: $white-color;
+      }
+    }
+  }
+}

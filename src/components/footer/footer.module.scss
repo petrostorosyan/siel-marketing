@@ -18,6 +18,21 @@
       @include regularBox(180px, unset, 55px, flex, space-between, center);
       margin-top: 17px;
       margin-bottom: 30px;
+
+      .socialLink {
+        @include regularBox(54px, 54px, unset, flex, center, center);
+        text-decoration: none;
+        border-radius: 50%;
+        transition: 0.5s;
+        font-size: 20px;
+        border: 1px solid #FDFDFB;
+        color: #FDFDFB;
+
+        &:hover {
+          border: 1px solid #aeaeac;
+        color: #aeaeac;
+        }
+      }
     }
 
     .privacyBlock {
@@ -73,7 +88,7 @@
 @media screen and (max-width: 500px) {
   .footerContainer {
     .footerContent {
-      width: 100%;     
+      width: 100%;
     }
   }
 }

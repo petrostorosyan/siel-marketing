@@ -1,7 +1,7 @@
 import Link from "next/link";
 import styles from "./blog.module.scss";
-import HorizontalCarousel from "./horizontalCarousel/horizontalCarousel";
-import VerticalCarousel from "./verticalCarousel/verticalCarousel";
+import HorizontalCarousel from "@/components/shared/horizontalCarousel/horizontalCarousel";
+import VerticalCarousel from "@/components/shared/verticalCarousel/verticalCarousel";
 
 export default function LikeButton() {
   return (

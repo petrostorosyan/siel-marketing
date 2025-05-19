@@ -1,0 +1,67 @@
+@use "../../../styles/mixins" as *;
+@use "../../../styles/variables" as *;
+
+.changeBlogContainer {
+  @include regularBox(100%, 100%, unset, flex, center, flex-start);
+  margin-top: 30px;
+
+  .changeBlogWrapper {
+    @include regularBox(100%, 100%, unset, flex, space-between, flex-start);
+    padding: 0 50px;
+    border: 2px solid red;
+
+    .socialIcons {
+      width: 450px;
+      min-height: 100px;
+      border: 1px solid #000;
+    }
+
+    .pageLink {
+      @include regularBox(
+        140px,
+        unset,
+        100px,
+        flex,
+        space-between,
+        flex-start,
+        column
+      );
+      text-decoration: none;
+
+      .button {
+        border-radius: 20px;
+        border: 1px solid $black-color;
+        background-color: transparent;
+        cursor: pointer;
+        @include regularBox(100%, 52px, unset, flex, center, center);
+      }
+
+      .pageName {
+        max-width: 100%;
+        font-size: 16px;
+        line-height: 20px;
+        font-weight: 200;
+        text-align: center;
+        color: $black-color;
+      }
+    }
+  }
+}
+
+/* <---------------------------------  Media  --------------------------------> */
+
+@media screen and (max-width: 1340px) {
+  .changeBlogContainer {
+    .changeBlogWrapper {
+      padding: 0;
+    }
+  }
+}
+
+@media screen and (max-width: 1340px) {
+  .changeBlogContainer {
+    .changeBlogWrapper {
+      padding: 0 50px;
+    }
+  }
+}

@@ -9,6 +9,7 @@ import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 import { blogsData } from "@/services/blogs/blogsData";
 import useScreenSize from "@/functions/hooks/useScreenSize";
+import Link from "next/link";
 
 const HorizontalCarousel = () => {
   const prevRef = useRef(null);
@@ -61,20 +62,22 @@ const HorizontalCarousel = () => {
             {blogsData.map((item) => {
               return (
                 <SwiperSlide key={item.id} className={styles.slide}>
-                  <div className={styles.imageBox}>
-                    <Image
-                      width={360}
-                      height={250}
-                      src={item.imageSource}
-                      alt={item.title}
-                      className={styles.image}
-                    />
-                  </div>
-                  <div className={styles.descriptionBox}>
-                    <p className={styles.date}>{item.uploadDate}</p>
-                    <p className={styles.descTitle}>{item.title}</p>
-                    <p className={styles.description}>{item.description}</p>
-                  </div>
+                  <Link href={item.link} className={styles.slideContent}>
+                    <div className={styles.imageBox}>
+                      <Image
+                        width={360}
+                        height={250}
+                        src={item.imageSource}
+                        alt={item.title}
+                        className={styles.image}
+                      />
+                    </div>
+                    <div className={styles.descriptionBox}>
+                      <p className={styles.date}>{item.uploadDate}</p>
+                      <p className={styles.descTitle}>{item.title}</p>
+                      <p className={styles.description}>{item.description}</p>
+                    </div>
+                  </Link>                  
                 </SwiperSlide>
               );
             })}
