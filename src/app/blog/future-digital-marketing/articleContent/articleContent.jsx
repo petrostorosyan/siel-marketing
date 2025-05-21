@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styles from "./articleContent.module.scss";
+import PrimaryButton from "@/components/shared/logo/primaryButton/primaryButton";
 
 const forBusinessData = [
   {
@@ -58,7 +59,88 @@ const bestPractices = [
   {
     id: 3,
     text: "Build trust through transparency about data usage and personalization.",
-  }
+  },
+];
+
+const centerImages = [
+  {
+    id: 1,
+    imageSource: "/images/blog/future-blog/future-blog-pic-1.webp",
+    alt: "future-blog-pic-1",
+  },
+  {
+    id: 2,
+    imageSource: "/images/blog/future-blog/future-blog-pic-2.webp",
+    alt: "future-blog-pic-2",
+  },
+  {
+    id: 3,
+    imageSource: "/images/blog/future-blog/future-blog-pic-3.webp",
+    alt: "future-blog-pic-3",
+  },
+];
+
+const stayAhead = [
+  {
+    id: 1,
+    text: "Optimize your social media profiles for seamless shopping experiences.",
+  },
+  {
+    id: 2,
+    text: "Use influencer collaborations to boost credibility and reach.",
+  },
+  {
+    id: 3,
+    text: "Integrate AI-driven recommendations to personalize the shopping journey.",
+  },
+];
+
+const personalizeEffectively = [
+  {
+    id: 1,
+    text: "Use AI-powered tools to segment audiences based on behavior and preferences.",
+  },
+  {
+    id: 2,
+    text: "Send personalized email campaigns with dynamic content.",
+  },
+  {
+    id: 3,
+    text: "Implement real-time website personalization for tailored experiences.",
+  },
+];
+
+const trend = [
+  {
+    id: 1,
+    text: "Use AI-Highlight sustainable practices in your branding and messaging.",
+  },
+  {
+    id: 2,
+    text: "Partner with eco-friendly initiatives to build credibility.",
+  },
+  {
+    id: 3,
+    text: "Be transparent about your company’s impact and commitments.",
+  },
+];
+
+const bottomImages = [
+  {
+    id: 1,
+    imageSource: "/images/blog/future-blog/future-blog-pic-4.webp",
+    alt: "future-blog-pic-4",
+  },
+  {
+    id: 2,
+    imageSource: "/images/blog/future-blog/future-blog-pic-5.webp",
+    alt: "future-blog-pic-5",
+  },
+  {
+    id: 3,
+    imageSource: "/images/blog/future-blog/future-blog-pic-6.webp",
+    alt: "future-blog-pic-6",
+  },
 ];
 
 const ArticleContent = () => {
@@ -161,6 +243,112 @@ const ArticleContent = () => {
           );
         })}
       </ul>
+      <div className={styles.imagesBlock}>
+        {centerImages.map((picture) => {
+          return (
+            <div key={picture.id} className={styles.imageBox}>
+              <Image
+                width={345}
+                height={245}
+                src={picture.imageSource}
+                alt={picture.alt}
+                className={styles.image}
+              />
+            </div>
+          );
+        })}
+      </div>
+      <h6 className={styles.subTitle}>
+        Social Commerce is Reshaping Online Shopping
+      </h6>
+      <p className={styles.description}>
+        Social media is no longer just for engagement; it’s a fully integrated
+        sales platform. Facebook Shops, Instagram Checkout, and TikTok Shopping
+        make it easier than ever for consumers to discover and purchase products
+        directly within apps.
+      </p>
+      <h6 className={styles.subTitle}>To stay ahead:</h6>
+      <ul className={styles.list}>
+        {stayAhead.map((item) => {
+          return (
+            <li key={item.id} className={styles.listItem}>
+              {item.text}
+            </li>
+          );
+        })}
+      </ul>
+      <h6 className={styles.subTitle}>Hyper-Personalization is a Must</h6>
+      <p className={styles.description}>
+        Generic marketing messages are a thing of the past. Consumers expect
+        brands to understand their needs and deliver highly personalized
+        experiences across multiple touchpoints.
+      </p>
+      <h6 className={styles.subTitle}>How to personalize effectively:</h6>
+      <ul className={styles.list}>
+        {personalizeEffectively.map((item) => {
+          return (
+            <li key={item.id} className={styles.listItem}>
+              {item.text}
+            </li>
+          );
+        })}
+      </ul>
+      <h6 className={styles.subTitle}>
+        Ethical and Sustainable Marketing Matters
+      </h6>
+      <p className={styles.description}>
+        Consumers are becoming more conscious of the brands they support.
+        Sustainability, ethical sourcing, and corporate social responsibility
+        are influencing purchasing decisions more than ever.
+      </p>
+      <h6 className={styles.subTitle}>Steps to embrace this trend:</h6>
+      <ul className={styles.list}>
+        {trend.map((item) => {
+          return (
+            <li key={item.id} className={styles.listItem}>
+              {item.text}
+            </li>
+          );
+        })}
+      </ul>
+      <div className={styles.imagesBlock}>
+        {bottomImages.map((picture) => {
+          return (
+            <div key={picture.id} className={styles.imageBox}>
+              <Image
+                width={345}
+                height={245}
+                src={picture.imageSource}
+                alt={picture.alt}
+                className={styles.image}
+              />
+            </div>
+          );
+        })}
+      </div>
+      <h6 className={styles.subTitle}>Final Thoughts</h6>
+      <p className={styles.description}>
+        The digital marketing world in 2025 will be driven by AI, personalized
+        experiences, and evolving consumer behaviors. Businesses that embrace
+        these changes will not only stay relevant but also thrive in an
+        increasingly competitive space. Whether it’s optimizing for voice
+        search, leveraging AI-driven tools, or tapping into social commerce,
+        staying ahead requires a proactive approach.
+      </p>
+      <p className={styles.bottomDescription}>
+        At SIEL Marketing, we help businesses navigate these shifts with
+        cutting-edge strategies tailored to their needs. Need help preparing for
+        the future of digital marketing? Let’s connect and create a game plan
+        for success!
+      </p>
+
+      <div className={styles.buttonBox}>
+        <PrimaryButton
+          title="Contact Us Today!"
+          color="black"
+          link="https://api.whatsapp.com/send/?phone=37495666833&text=Hello%2C+I%E2%80%99m+interested+in+learning+more+about+your+services+at+SIEL+Marketing.+Could+you+please+provide+details+on+how+your+packages+can+help+my+business+grow%3F+Thank+you%21&type=phone_number&app_absent=0"
+        />
+      </div>
     </div>
   );
 };

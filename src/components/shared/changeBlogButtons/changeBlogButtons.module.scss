@@ -40,11 +40,11 @@
 
       .pageLink {
         @include regularBox(
-          140px,
+          142px,
           unset,
-          100px,
+          60px,
           flex,
-          space-between,
+          flex-start,
           flex-start,
           column
         );
@@ -55,12 +55,16 @@
           border-radius: 20px;
           border: 1px solid $black-color;
           background-color: transparent;
+          font-size: 16px;
+          font-weight: 400;
           cursor: pointer;
           @include regularBox(100%, 52px, unset, flex, center, center);
         }
 
         .pageName {
-          max-width: 100%;
+          width: 100%;
+          min-height: 20px;
+          margin-top: 5px;
           font-size: 16px;
           line-height: 20px;
           font-weight: 200;
