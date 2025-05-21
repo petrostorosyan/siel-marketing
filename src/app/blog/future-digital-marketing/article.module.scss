@@ -1,0 +1,87 @@
+@use "../../../styles/mixins" as *;
+@use "../../../styles/variables" as *;
+
+.articleContainer {
+  @include regularBox(100%, unset, 200px, flex, flex-start, center, column);
+  transition: 0.5s;
+
+  .headerBackground {
+    width: 100%;
+    height: 645px;
+    background-image: url("/images/blog/digital-marketing-future.webp");
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: center top;
+    transition: 0.5s;
+  }
+
+  .contentBlock {
+    @include regularBox(100%, unset, 200px, flex, flex-start, center, column);
+    position: relative;
+
+    .contentBody {
+      width: 100%;
+      height: 1000px;
+      transition: 0.5s;
+    }
+
+    .article {
+      width: 1400px;
+      min-height: 200px;
+      position: absolute;
+      top: 400px;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: 0.5s;
+    }
+  }
+
+    .changeBlogButtons {
+    width: 1400px;
+    min-height: 100px;
+    margin-bottom: 50px;
+    transition: 0.5s;
+  }
+
+  .bottomBackground {
+    width: 100%;
+    height: 360px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-image: url("/images/blog/future-blog/bottom-background.webp");
+  }
+
+  .otherArticlesContainer {
+    @include regularBox(100%, unset, 100px, flex, center, flex-start);
+    margin-bottom: 50px;
+
+    .otherArticles {
+      @include regularBox(
+        1170px,
+        unset,
+        100px,
+        flex,
+        flex-start,
+        flex-start,
+        column
+      );
+      transition: 0.5s;
+
+      .sectionTitle {
+        @include textStyle(28px, $black-color, bold, 38px);
+        margin-bottom: 30px;
+        transition: 0.5s;
+      }
+
+      .horizontal,
+      .vertical {
+        @include regularBox(100%, unset, 100px, flex, center, flex-start);
+      }
+
+      .vertical {
+        display: none;
+      }
+    }
+  }
+}

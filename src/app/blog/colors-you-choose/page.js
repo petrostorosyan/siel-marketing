@@ -18,9 +18,9 @@ export default async function Page({ params: { id } }) {
       <div className={styles.changeBlogButtons}>
         <ChangeBlogButtons
           prevPageName="Content Marketing in the AI Era"
-          prevPageLink="/"
+          prevPageLink="/blog/content-marketing-in-ai-era"
           nextPageName="The Future of Digital Marketing"
-          nextPageLink="/"
+          nextPageLink="/blog/future-digital-marketing"
         />
       </div>
 
