@@ -59,6 +59,15 @@
           font-weight: 400;
           cursor: pointer;
           @include regularBox(100%, 52px, unset, flex, center, center);
+
+          .prevIcon {
+            margin-right: 15px;
+          }
+
+          .nextIcon {
+            margin-left: 15px;
+            transform: rotate(180deg);
+          }
         }
 
         .pageName {
@@ -148,6 +157,16 @@
 
         .pageLink {
           width: 120px;
+
+          .button {
+                      .prevIcon {
+            margin-right: 10px;
+          }
+
+          .nextIcon {
+            margin-left: 10px;
+          }
+          }
 
           .pageName {
             font-size: 14px;

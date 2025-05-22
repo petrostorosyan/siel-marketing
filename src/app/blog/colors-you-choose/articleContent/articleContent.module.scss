@@ -241,6 +241,9 @@
 
 @media screen and (max-width: 770px) {
   .articleContainer {
+    padding: 30px;
+    box-shadow: unset;
+    
     .pageTitle {
       font-size: 32px;
       line-height: 40px;
@@ -292,13 +295,6 @@
   }
 }
 
-@media screen and (max-width: 770px) {
-  .articleContainer {
-    padding: 30px;
-    box-shadow: unset;
-  }
-}
-
 @media screen and (max-width: 550px) {
   .articleContainer {
     padding: 20px;
@@ -335,6 +331,10 @@
 
     .subTitle {
       font-size: 15px;
+    }
+
+    .buttonBox {
+      width: 100%;
     }
 
     .textAndImage {

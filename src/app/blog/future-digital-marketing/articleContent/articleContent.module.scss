@@ -81,6 +81,7 @@
       width: 44%;
       min-height: 50px;
       margin-top: 80px;
+      list-style-position: inside;
       transition: 0.5s;
 
       .listItem {
@@ -132,7 +133,7 @@
 
 .imagesBlock {
   margin: 30px 0;
-  @include regularBox(100%, unset, 100px, flex, center, center);
+  @include regularBox(100%, unset, 100px, flex, space-between, center);
   column-gap: 5%;
   transition: 0.5s;
 
@@ -178,6 +179,7 @@
 
       .listBox {
         width: 100%;
+        margin-top: 20px;
         margin-bottom: 30px;
 
         .listItem {
@@ -192,6 +194,150 @@
         .image {
           width: 80%;
         }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1080px) {
+  .articleContainer {
+    padding: 40px;
+
+    .pageTitle {
+      font-size: 36px;
+      line-height: 42px;
+    }
+
+    .textAndImage {
+      .imageBox {
+        .image {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 770px) {
+  .articleContainer {
+    padding: 30px;
+    box-shadow: unset;
+    .pageTitle {
+      font-size: 32px;
+      line-height: 40px;
+    }
+
+    .description,
+    .bottomDescription {
+      font-size: 15px;
+      line-height: 22px;
+    }
+
+    .subTitle {
+      font-size: 16px;
+    }
+
+    .textAndImage {
+      .listBox {
+        margin-top: 10px;
+        .listItem {
+          font-size: 15px;
+          line-height: 22px;
+        }
+      }
+    }
+    .centerImageBlock {
+      margin-bottom: 15px;
+    }
+  }
+
+  .list {
+    .listItem {
+      font-size: 15px;
+      line-height: 22px;
+    }
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .articleContainer {
+    padding: 20px;
+    margin-bottom: 20px;
+
+    .pageTitle {
+      font-size: 24px;
+      line-height: 30px;
+    }
+
+    .buttonBox {
+      width: 230px;
+      height: 50px;
+      font-size: 18px;
+    }
+  }
+
+  .imagesBlock {
+    margin: 25px 0;
+    margin-bottom: 10px;
+
+    .imageBox {
+      width: calc(100% / 3 - 10px);
+
+      .image {
+        border-radius: 10px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .articleContainer {
+    padding: 15px;
+
+    .uploadDate {
+      font-size: 15px;
+    }
+
+    .description,
+    .bottomDescription {
+      font-size: 14px;
+      line-height: 22px;
+    }
+
+    .subTitle {
+      font-size: 15px;
+    }
+
+    .textAndImage {
+      .listBox {
+        margin-top: 5px;
+        .listItem {
+          font-size: 14px;
+        }
+      }
+    }
+    .centerImageBlock {
+      margin-bottom: 15px;
+    }
+
+    .buttonBox {
+      width: 100%;
+    }
+  }
+
+  .list {
+    .listItem {
+      font-size: 14px;
+    }
+  }
+
+  .imagesBlock {
+    margin: 20px 0;
+    column-gap: 3%;
+
+    .imageBox {
+      .image {
+        border-radius: 6px;
       }
     }
   }

@@ -15,7 +15,7 @@ const ChangeBlogButtons = ({
         <div className={styles.changeBlogWrapper}>
           <Link href={prevPageLink} className={styles.pageLink}>
             <button className={styles.button}>
-              <KeyboardBackspaceIcon sx={{ marginRight: "15px" }} />
+              <KeyboardBackspaceIcon className={styles.prevIcon} />
               Previous
             </button>
             <p className={styles.pageName}>{prevPageName}</p>
@@ -28,7 +28,7 @@ const ChangeBlogButtons = ({
             <button className={styles.button}>
               Next
               <KeyboardBackspaceIcon
-                sx={{ transform: "rotate(180deg)", marginLeft: "15px" }}
+                className={styles.nextIcon}
               />
             </button>
             <p className={styles.pageName}>{nextPageName}</p>
