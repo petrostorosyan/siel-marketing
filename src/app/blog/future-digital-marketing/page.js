@@ -5,17 +5,17 @@ import VerticalCarousel from "@/components/shared/verticalCarousel/verticalCarou
 import ChangeBlogButtons from "@/components/shared/changeBlogButtons/changeBlogButtons";
 
 export default async function Page({ params: { id } }) {
-    return (
+  return (
     <div className={styles.articleContainer}>
-        <div className={styles.headerBackground}></div>
-        <div className={styles.contentBlock}>
+      <div className={styles.headerBackground}></div>
+      <div className={styles.contentBlock}>
         <div className={styles.contentBody}></div>
         <div className={styles.article}>
           <ArticleContent />
         </div>
         <div className={styles.bottomBackground}></div>
       </div>
-       <div className={styles.changeBlogButtons}>
+      <div className={styles.changeBlogButtons}>
         <ChangeBlogButtons
           prevPageName="Colors You Choose"
           prevPageLink="/blog/colors-you-choose"
@@ -36,6 +36,5 @@ export default async function Page({ params: { id } }) {
         </div>
       </div>
     </div>
-)
+  );
 }
-

@@ -1,0 +1,347 @@
+@use "../../../styles/mixins" as *;
+@use "../../../styles/variables" as *;
+
+.articleContainer {
+  @include regularBox(100%, unset, 200px, flex, flex-start, center, column);
+  transition: 0.5s;
+
+  .headerBackground {
+    width: 100%;
+    height: 645px;
+    background-image: url("/images/blog/ai-chatbots.webp");
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: center top;
+    transition: 0.5s;
+  }
+
+  .contentBlock {
+    @include regularBox(100%, unset, 200px, flex, flex-start, center, column);
+    position: relative;
+    transition: 0.5s;
+
+    .contentBody {
+      width: 100%;
+      height: 1925px;
+      transition: 0.5s;
+    }
+
+    .article {
+      width: 1400px;
+      min-height: 200px;
+      position: absolute;
+      top: 960px;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: 0.5s;
+    }
+  }
+
+  .changeBlogButtons {
+    width: 1400px;
+    min-height: 100px;
+    margin-bottom: 50px;
+    transition: 0.5s;
+  }
+
+  .bottomBackground {
+    width: 100%;
+    height: 360px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-image: url("/images/blog/ai-chatbots-marketing/bottom-background.webp");
+  }
+
+  .otherArticlesContainer {
+    @include regularBox(100%, unset, 100px, flex, center, flex-start);
+    margin-bottom: 50px;
+
+    .otherArticles {
+      @include regularBox(
+        1170px,
+        unset,
+        100px,
+        flex,
+        flex-start,
+        flex-start,
+        column
+      );
+      transition: 0.5s;
+
+      .sectionTitle {
+        @include textStyle(28px, $black-color, bold, 38px);
+        margin-bottom: 30px;
+        transition: 0.5s;
+      }
+
+      .horizontal,
+      .vertical {
+        @include regularBox(100%, unset, 100px, flex, center, flex-start);
+      }
+
+      .vertical {
+        display: none;
+      }
+    }
+  }
+}
+
+/* <---------------------------------  Media  --------------------------------> */
+
+@media screen and (max-width: 1600px) {
+  .articleContainer {
+    .contentBlock {
+      .contentBody {
+        height: 1735px;
+      }
+      .article {
+        width: 1200px;
+        top: 840px;
+      }
+    }
+
+    .changeBlogButtons {
+      width: 1200px;
+    }
+  }
+}
+
+@media screen and (max-width: 1340px) {
+  .articleContainer {
+    .contentBlock {
+      .contentBody {
+        height: 2100px;
+      }
+      .article {
+        top: 1015px;
+        width: 950px;
+      }
+    }
+
+    .bottomBackground {
+      height: 300px;
+    }
+
+    .changeBlogButtons {
+      width: 1050px;
+    }
+  }
+}
+
+@media screen and (max-width: 1250px) {
+  .articleContainer {
+    .changeBlogButtons {
+      width: 100%;
+    }
+
+    .otherArticlesContainer {
+      .otherArticles {
+        width: 950px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1160px) {
+  .articleContainer {
+    .contentBlock {
+      .contentBody {
+        height: 2055px;
+      }
+      .article {
+        top: 960px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1080px) {
+  .articleContainer {
+    .contentBlock {
+      .contentBody {
+        height: 2140px;
+      }
+      .article {
+        top: 1000px;
+        width: 800px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .articleContainer {
+    .otherArticlesContainer {
+      .otherArticles {
+        width: 700px;
+
+        .sectionTitle {
+          font-size: 24px;
+          line-height: 34px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .articleContainer {
+    .contentBlock {
+      .contentBody {
+        height: 2115px;
+      }
+      .article {
+        top: 960px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .articleContainer {
+    .contentBlock {
+      .contentBody {
+        height: 2165px;
+      }
+
+      .article {
+        width: 89%;
+      }
+
+      .bottomBackground {
+        height: 185px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 870px) {
+  .articleContainer {
+    .contentBlock {
+      .contentBody {
+        height: 2252px;
+      }
+      .article {
+        top: 982px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 770px) {
+  .articleContainer {
+    .contentBlock {
+      .bottomBackground {
+        height: 155px;
+      }
+    }
+
+    .otherArticlesContainer {
+      margin-bottom: 80px;
+      .otherArticles {
+        width: 500px;
+
+        .horizontal {
+          display: none;
+        }
+
+        .vertical {
+          display: flex;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 670px) {
+  .articleContainer {
+    .headerBackground {
+      height: 290px;
+    }
+    .contentBlock {
+      .contentBody {
+        display: none;
+      }
+      .article {
+        width: 100%;
+        position: unset;
+        transform: unset;
+      }
+
+      .bottomBackground {
+        height: 135px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .articleContainer {
+    .headerBackground {
+      height: 260px;
+    }
+
+    .contentBlock {
+      .bottomBackground {
+        height: 125px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .articleContainer {
+    .otherArticlesContainer {
+      .otherArticles {
+        width: 380px;
+
+        .sectionTitle {
+          font-size: 20px;
+          line-height: 30px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .articleContainer {
+    .headerBackground {
+      height: 225px;
+    }
+
+    .contentBlock {
+      .bottomBackground {
+        height: 105px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .articleContainer {
+    .headerBackground {
+      height: 196px;
+    }
+
+    .contentBlock {
+      .bottomBackground {
+        height: 105px;
+      }
+    }
+    .otherArticlesContainer {
+      .otherArticles {
+        width: 330px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .articleContainer {
+    .headerBackground {
+      height: 175px;
+    }
+  }
+}

@@ -35,20 +35,30 @@
     opacity: 0.2;
   }
 
-  .description {
+  .description,
+  .bottomDescription {
     font-size: 16px;
     line-height: 24px;
     font-weight: 300;
     letter-spacing: 1px;
   }
 
-  .subTitle {
+  .bottomDescription {
+    margin-top: 30px;
+  }
+
+  .subTitle,
+  .lightWeightTitle {
     color: black;
     font-size: 18px;
     line-height: 24px;
     font-weight: 600;
     letter-spacing: 1px;
     margin: 15px 0;
+  }
+
+  .lightWeightTitle {
+    font-weight: 300;
   }
 
   .blockTitle {
@@ -59,78 +69,6 @@
     letter-spacing: 1px;
   }
 
-  .lightWeightTitle {
-    font-size: 16px;
-    line-height: 24px;
-    font-weight: 300;
-    letter-spacing: 1px;
-    margin: 20px 0;
-  }
-
-  .textAndImage {
-    @include regularBox(100%, unset, 100px, flex, space-between, flex-start);
-    transition: 0.5s;
-
-    .textBox {
-      width: 56%;
-      min-height: 50px;
-      transition: 0.5s;
-
-      .text {
-        color: rgb(16, 21, 46);
-        font-size: 16px;
-        line-height: 24px;
-        font-weight: 300;
-        letter-spacing: 1px;
-        margin-bottom: 10px;
-
-        &:nth-last-child(1) {
-          margin-bottom: 0;
-        }
-
-        .boldText {
-          display: inline-block;
-          color: rgb(16, 21, 46);
-          font-size: 16px;
-          line-height: 24px;
-          font-weight: 600;
-          letter-spacing: 1px;
-          margin-right: 10px;
-        }
-      }
-    }
-
-    .imageBox {
-      width: 40%;
-      min-height: 50px;
-      transition: 0.5s;
-
-      .image {
-        width: 100%;
-        height: auto;
-      }
-    }
-  }
-
-  .centerImageBlock {
-    margin: 30px 0;
-    @include regularBox(100%, unset, 100px, flex, space-between, center);
-    column-gap: 5%;
-    transition: 0.5s;
-
-    .imageBox {
-      width: calc(100% / 3 - 20px);
-      height: 15%;
-      transition: 0.5s;
-
-      .image {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-    }
-  }
-
   .buttonBox {
     width: 240px;
     height: 55px;
@@ -138,15 +76,54 @@
     margin-top: 40px;
     transition: 0.5s;
   }
+
+  .textAndImage {
+    @include regularBox(100%, unset, 100px, flex, space-between, flex-start);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    transition: 0.5s;
+
+    .listBox {
+      width: 44%;
+      min-height: 50px;
+      margin-top: 65px;
+      list-style-position: inside;
+      transition: 0.5s;
+
+      .listItem {
+        color: rgb(16, 21, 46);
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: 300;
+        letter-spacing: 1px;
+        margin-bottom: 40px;
+
+        &:nth-last-child(1) {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    .imageBox {
+      width: 52%;
+      min-height: 50px;
+      transition: 0.5s;
+
+      .image {
+        width: 100%;
+        height: auto;
+        border-radius: 20px;
+      }
+    }
+  }
 }
 
-.textBox {
+.list {
   width: 100%;
-  min-height: 50px;
-  margin-top: 20px;
-  transition: 0.5s;
+  min-height: 20px;
+  list-style-position: inside;
 
-  .text {
+  .listItem {
     color: rgb(16, 21, 46);
     font-size: 16px;
     line-height: 24px;
@@ -157,15 +134,25 @@
     &:nth-last-child(1) {
       margin-bottom: 0;
     }
+  }
+}
 
-    .boldText {
-      display: inline-block;
-      color: rgb(16, 21, 46);
-      font-size: 16px;
-      line-height: 24px;
-      font-weight: 600;
-      letter-spacing: 1px;
-      margin-right: 10px;
+.imagesBlock {
+  margin: 30px 0;
+  @include regularBox(100%, unset, 100px, flex, space-between, center);
+  column-gap: 5%;
+  transition: 0.5s;
+
+  .imageBox {
+    width: calc(100% / 3 - 20px);
+    height: 15%;
+    transition: 0.5s;
+
+    .image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 20px;
     }
   }
 }
@@ -175,14 +162,22 @@
 @media screen and (max-width: 1600px) {
   .articleContainer {
     .textAndImage {
-      .textBox {
-        width: 49%;
+      .listBox {
+        width: 46%;
+        margin-top: 30px;
+        .listItem {
+          margin-bottom: 35px;
+        }
       }
 
       .imageBox {
-        width: 47%;
+        width: 48%;
       }
     }
+  }
+
+  .centerImageBlock {
+    column-gap: 2%;
   }
 }
 
@@ -192,9 +187,14 @@
       flex-direction: column;
       margin-bottom: 20px;
 
-      .textBox {
+      .listBox {
         width: 100%;
+        margin-top: 20px;
         margin-bottom: 30px;
+
+        .listItem {
+          margin-bottom: 15px;
+        }
       }
 
       .imageBox {
@@ -204,12 +204,6 @@
         .image {
           width: 80%;
         }
-      }
-    }
-
-    .centerImageBlock {
-      .imageBox {
-        width: calc(100% / 3 - 10px);
       }
     }
   }
@@ -238,17 +232,13 @@
   .articleContainer {
     padding: 30px;
     box-shadow: unset;
-
     .pageTitle {
       font-size: 32px;
       line-height: 40px;
     }
 
-    .lightWeightTitle {
-      margin: 15px 0;
-    }
-
-    .description {
+    .description,
+    .bottomDescription {
       font-size: 15px;
       line-height: 22px;
     }
@@ -258,35 +248,23 @@
     }
 
     .textAndImage {
-      .textBox {
-        .text {
+      .listBox {
+        margin-top: 10px;
+        .listItem {
           font-size: 15px;
           line-height: 22px;
-
-          .boldText {
-            font-size: 15px;
-            line-height: 22px;
-            margin-right: 8px;
-          }
         }
       }
     }
     .centerImageBlock {
       margin-bottom: 15px;
-      column-gap: 3%;
     }
   }
 
-  .textBox {
-    .text {
+  .list {
+    .listItem {
       font-size: 15px;
       line-height: 22px;
-
-      .boldText {
-        font-size: 15px;
-        line-height: 22px;
-        margin-right: 8px;
-      }
     }
   }
 }
@@ -294,6 +272,7 @@
 @media screen and (max-width: 550px) {
   .articleContainer {
     padding: 20px;
+    margin-bottom: 20px;
 
     .pageTitle {
       font-size: 24px;
@@ -306,6 +285,19 @@
       font-size: 18px;
     }
   }
+
+  .imagesBlock {
+    margin: 25px 0;
+    margin-bottom: 10px;
+
+    .imageBox {
+      width: calc(100% / 3 - 10px);
+
+      .image {
+        border-radius: 10px;
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 450px) {
@@ -316,11 +308,8 @@
       font-size: 15px;
     }
 
-    .lightWeightTitle {
-      margin: 10px 0;
-    }
-
-    .description {
+    .description,
+    .bottomDescription {
       font-size: 14px;
       line-height: 22px;
     }
@@ -329,48 +318,39 @@
       font-size: 15px;
     }
 
-    .buttonBox {
-      width: 100%;
-    }
-
     .textAndImage {
-      .textBox {
-        .text {
+      .listBox {
+        margin-top: 5px;
+        .listItem {
           font-size: 14px;
-          line-height: 22px;
-
-          .boldText {
-            font-size: 14px;
-            line-height: 22px;
-            margin-right: 6px;
-          }
         }
       }
     }
     .centerImageBlock {
       margin-bottom: 15px;
-      flex-direction: column;
+    }
 
-      .imageBox {
-        width: 100%;
-        height: 215px;
-        margin-bottom: 30px;
-
-        .image {
-          border-radius: 20px;
-        }
-      }
+    .buttonBox {
+      width: 100%;
     }
   }
-  .textBox {
-    .text {
-      font-size: 14px;
-      line-height: 22px;
 
-      .boldText {
-        font-size: 14px;
-        line-height: 22px;
-        margin-right: 6px;
+  .list {
+    .listItem {
+      font-size: 14px;
+    }
+  }
+
+  .imagesBlock {
+    margin: 20px 0;
+    flex-direction: column;
+
+    .imageBox {
+      width: 100%;
+      height: 215px;
+      margin-bottom: 30px;
+      .image {
+        border-radius: 20px;
       }
     }
   }
