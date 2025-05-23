@@ -232,6 +232,15 @@
 @media screen and (max-width: 770px) {
   .articleContainer {
     .contentBlock {
+
+       .contentBody {
+        height: 2060px;
+      }
+
+      .article {
+        top: 865px;
+      }
+
       .bottomBackground {
         height: 155px;
       }
@@ -249,6 +258,19 @@
         .vertical {
           display: flex;
         }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 710px) {
+  .articleContainer {
+    .contentBlock {
+      .contentBody {
+        height: 2105px;
+      }
+      .article {
+        top: 880px;
       }
     }
   }
