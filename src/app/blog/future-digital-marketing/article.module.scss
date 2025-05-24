@@ -143,11 +143,24 @@
   }
 }
 
+@media screen and (max-width: 1160px) {
+  .articleContainer {
+    .contentBlock {
+      .contentBody {
+        height: 3205px;
+      }
+      .article {
+        top: 1545px;
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 1080px) {
   .articleContainer {
     .contentBlock {
       .contentBody {
-        height: 3310px;
+        height: 3265px;
       }
       .article {
         width: 800px;
@@ -175,10 +188,10 @@
   .articleContainer {
     .contentBlock {
       .contentBody {
-        height: 3270px;
+        height: 3235px;
       }
       .article {
-        top: 1550px;
+        top: 1520px;
       }
     }
   }
@@ -188,7 +201,7 @@
   .articleContainer {
     .contentBlock {
       .contentBody {
-        height: 3330px;
+        height: 3265px;
       }
 
       .article {
@@ -232,7 +245,7 @@
   .articleContainer {
     .contentBlock {
       .contentBody {
-        height: 3535px;
+        height: 3480px;
       }
       .article {
         top: 1610px;

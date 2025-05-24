@@ -132,6 +132,10 @@
       }
     }
 
+     .bottomBackground {
+        height: 300px;
+      }
+
     .changeBlogButtons {
       width: 100%;
     }
@@ -148,13 +152,17 @@
   .articleContainer {
     .contentBlock {
       .contentBody {
-        height: 2500px;
+        height: 2640px;
       }
       .article {
-        top: 1170px;
+        top: 1220px;
         width: 800px;
       }
     }
+
+    .bottomBackground {
+        height: 200px;
+      }
   }
 }
 
@@ -173,11 +181,50 @@
   }
 }
 
+@media screen and (max-width: 950px) {
+  .articleContainer {
+    .contentBlock {
+      .contentBody {
+        height: 2620px;
+      }
+      .article {
+        top: 1190px;
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 900px) {
   .articleContainer {
     .contentBlock {
       .article {
         width: 89%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 860px) {
+  .articleContainer {
+    .contentBlock {
+      .contentBody {
+        height: 2575px;
+      }
+      .article {
+        top: 1150px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 820px) {
+  .articleContainer {
+    .contentBlock {
+      .contentBody {
+        height: 2625px;
+      }
+      .article {
+        top: 1170px;
       }
     }
   }

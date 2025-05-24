@@ -4,7 +4,7 @@ import ArticleContent from "./articleContent/articleContent";
 import VerticalCarousel from "@/components/shared/verticalCarousel/verticalCarousel";
 import ChangeBlogButtons from "@/components/shared/changeBlogButtons/changeBlogButtons";
 
-export default async function Page({ params: { id } }) {
+export default function Page() {
   return (
     <div className={styles.articleContainer}>
       <div className={styles.headerBackground}></div>

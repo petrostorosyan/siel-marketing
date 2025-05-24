@@ -188,11 +188,11 @@
 
       .listBox {
         width: 100%;
-        margin-top: 20px;
+        margin-top: 10px;
         margin-bottom: 30px;
 
         .listItem {
-          margin-bottom: 15px;
+          margin-bottom: 10px;
         }
       }
 
@@ -206,6 +206,10 @@
       }
     }
   }
+
+  .imagesBlock {
+    margin: 15px 0;
+  }
 }
 
 @media screen and (max-width: 1080px) {
@@ -218,10 +222,157 @@
     }
 
     .textAndImage {
+      .listBox {
+        margin-top: 10px;
+      }
       .imageBox {
         .image {
           width: 100%;
         }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 770px) {
+  .articleContainer {
+    padding: 30px;
+    .pageTitle {
+      font-size: 32px;
+      line-height: 40px;
+    }
+
+    .description,
+    .bottomDescription {
+      font-size: 15px;
+      line-height: 22px;
+    }
+
+    .subTitle {
+      font-size: 16px;
+    }
+
+    .textAndImage {
+      .listBox {
+        margin-top: 10px;
+        .listItem {
+          font-size: 15px;
+          line-height: 22px;
+        }
+      }
+    }
+    .centerImageBlock {
+      margin-bottom: 15px;
+    }
+  }
+
+  .list {
+    .listItem {
+      font-size: 15px;
+      line-height: 22px;
+    }
+  }
+}
+
+@media screen and (max-width: 670px) {
+  .articleContainer {
+    box-shadow: unset;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .articleContainer {
+    padding: 20px;
+    margin-bottom: 20px;
+
+    .pageTitle {
+      font-size: 24px;
+      line-height: 30px;
+    }
+
+    .buttonBox {
+      width: 230px;
+      height: 50px;
+      font-size: 18px;
+    }
+
+    .textAndImage {
+      .listBox {
+        .listItem {
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+
+  .imagesBlock {
+    margin: 10px 0;
+
+    .imageBox {
+      width: calc(100% / 3 - 10px);
+
+      .image {
+        border-radius: 10px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .articleContainer {
+    padding: 15px;
+
+    .uploadDate {
+      font-size: 15px;
+    }
+
+    .description,
+    .bottomDescription {
+      font-size: 14px;
+      line-height: 22px;
+    }
+
+    .subTitle {
+      font-size: 15px;
+    }
+
+    .textAndImage {
+      .listBox {
+        margin-top: 5px;
+        .listItem {
+          font-size: 14px;
+        }
+      }
+    }
+    .centerImageBlock {
+      margin-bottom: 15px;
+    }
+
+    .buttonBox {
+      width: 100%;
+    }
+  }
+
+  .list {
+    .listItem {
+      font-size: 14px;
+    }
+  }
+
+  .imagesBlock {
+    // margin: 20px 0;
+    flex-direction: column;
+
+    .imageBox {
+      width: 100%;
+      height: 215px;
+      margin-bottom: 30px;
+
+      &:nth-last-child(1) {
+        margin-bottom: 0;
+      }
+      .image {
+        border-radius: 20px;
       }
     }
   }

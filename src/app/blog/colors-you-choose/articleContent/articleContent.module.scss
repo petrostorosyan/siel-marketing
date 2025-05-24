@@ -42,6 +42,10 @@
     letter-spacing: 1px;
   }
 
+  .descPositionTop {
+    margin-top: 20px;
+  }
+
   .subTitle {
     color: black;
     font-size: 18px;
@@ -57,6 +61,14 @@
     line-height: 24px;
     font-weight: 600;
     letter-spacing: 1px;
+  }
+
+  .titlePositionTop {
+    margin-top: 40px;
+  }
+
+  .titlePositionBottom {
+    margin-bottom: 30px;
   }
 
   .lightWeightTitle {
@@ -177,6 +189,7 @@
     .textAndImage {
       .textBox {
         width: 49%;
+        margin-top: 0;  
       }
 
       .imageBox {
@@ -208,6 +221,7 @@
     }
 
     .centerImageBlock {
+      margin-bottom: 20px;
       .imageBox {
         width: calc(100% / 3 - 10px);
       }
@@ -224,6 +238,14 @@
       line-height: 42px;
     }
 
+    .titlePositionTop {
+      margin-top: 30px;
+    }
+
+    .titlePositionBottom {
+      margin-bottom: 25px;
+    }
+
     .textAndImage {
       .imageBox {
         .image {
@@ -236,8 +258,7 @@
 
 @media screen and (max-width: 770px) {
   .articleContainer {
-    padding: 30px;
-    
+    padding: 30px;    
 
     .pageTitle {
       font-size: 32px;
@@ -294,6 +315,10 @@
 @media screen and (max-width: 670px) {
   .articleContainer {
     box-shadow: unset;
+
+    .titlePositionTop {
+      margin-top: 25px;
+    }
   }
 }
 
@@ -361,6 +386,10 @@
         width: 100%;
         height: 215px;
         margin-bottom: 30px;
+
+        &:nth-last-child(1) {
+          margin-bottom: 0;
+        }
 
         .image {
           border-radius: 20px;

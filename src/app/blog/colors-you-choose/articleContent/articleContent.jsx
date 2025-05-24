@@ -203,7 +203,7 @@ const ArticleContent = () => {
         })}
       </div>
 
-      <h6 className={styles.blockTitle} style={{marginTop: "40px"}}>
+      <h6 className={`${styles.blockTitle} ${styles.titlePositionTop}`}>
         Examples of Brands Using Color Psychology Effectively
       </h6>
 
@@ -218,7 +218,7 @@ const ArticleContent = () => {
         })}
       </div>
 
-      <h6 className={styles.blockTitle} style={{marginTop: "30px", marginBottom: "20px"}}>
+      <h6 className={`${styles.blockTitle} ${styles.titlePositionTop} ${styles.titlePositionBottom}`}>
         Final Thoughts: Make Colors Work for You
       </h6>
 
@@ -231,7 +231,7 @@ const ArticleContent = () => {
         bring your vision to life.
       </p>
 
-      <p className={styles.description} style={{marginTop: "20px"}}>
+      <p className={`${styles.description} ${styles.descPositionTop}`}>
         Need help finding the perfect color palette for your brand? Let’s create
         something unforgettable together.
       </p>

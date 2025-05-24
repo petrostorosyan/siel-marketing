@@ -212,7 +212,7 @@ const ArticleContent = () => {
         authentic, human-driven experiences that AI alone cannot replicate.
       </p>
       <h6 className={styles.subTitle}>Final Thoughts</h6>
-      <p className={styles.bottomDescription}>
+      <p className={styles.description}>
         AI is transforming content marketing, but human creativity remains
         irreplaceable. At SIEL Marketing, we believe in blending AI-powered
         insights with authentic storytelling to deliver compelling content that
