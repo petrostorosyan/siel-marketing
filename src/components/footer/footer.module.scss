@@ -25,12 +25,12 @@
         border-radius: 50%;
         transition: 0.5s;
         font-size: 20px;
-        border: 1px solid #FDFDFB;
-        color: #FDFDFB;
+        border: 1px solid #fdfdfb;
+        color: #fdfdfb;
 
         &:hover {
           border: 1px solid #aeaeac;
-        color: #aeaeac;
+          color: #aeaeac;
         }
       }
     }
@@ -47,9 +47,13 @@
       }
 
       .link {
-        @include textStyle(18px, #fff, 300, 20px);
+        @include textStyle(18px, #fdfdfb, 300, 20px);
         text-decoration: none;
         transition: 0.5s;
+
+        &:hover {
+          color: #aeaeac;
+        }
       }
     }
 

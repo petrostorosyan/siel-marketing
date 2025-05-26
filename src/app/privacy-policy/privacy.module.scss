@@ -1,0 +1,20 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+
+.PrivacyContainer {
+  @include regularBox(100%, unset, 100px, flex, flex-start, center, column);
+  padding: 50px 150px;
+  transition: 0.5s;
+
+  .pageTitle {
+    @include textStyle(
+      var(--title-h2),
+      $black-color,
+      bold,
+      var(--title-h2-height)
+    );
+    text-align: center;
+    margin-bottom: 66px;
+    transition: 0.5s;
+  }
+}

@@ -3,7 +3,6 @@
 
 .faqContent {
   @include regularBox(100%, unset, 200px, flex, space-between, flex-start);
-  gap: 10px;
 }
 
 /* <---------------------------------  Media  --------------------------------> */
