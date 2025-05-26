@@ -1,0 +1,16 @@
+@use "../../../styles/mixins" as *;
+@use "../../../styles/variables" as *;
+
+.faqContent {
+  @include regularBox(100%, unset, 200px, flex, space-between, flex-start);
+  gap: 10px;
+}
+
+/* <---------------------------------  Media  --------------------------------> */
+
+@media screen and (max-width: 1000px) {
+  .faqContent {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+}

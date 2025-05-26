@@ -1,0 +1,32 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+
+.faqContainer {
+  @include regularBox(100%, unset, 100px, flex, flex-start, center, column);
+  padding: 50px 150px;
+  transition: 0.5s;
+
+  .pageTitle {
+    @include textStyle(
+      var(--title-h2),
+      $black-color,
+      bold,
+      var(--title-h2-height)
+    );
+    margin-bottom: 66px;
+  }
+}
+
+/* <---------------------------------  Media  --------------------------------> */
+
+@media screen and (max-width: 1450px) {
+.faqContainer {
+padding: 50px 100px;
+}
+}
+
+@media screen and (max-width: 1250px) {
+.faqContainer {
+padding: 50px;
+}
+}

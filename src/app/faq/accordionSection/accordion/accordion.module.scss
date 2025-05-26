@@ -1,0 +1,122 @@
+@use "../../../../styles/mixins" as *;
+@use "../../../../styles/variables" as *;
+
+.accordionBox {
+  @include regularBox(48%, unset, 50px, flex, flex-start, flex-start, column);
+  gap: 10px;
+  transition: 0.5s;
+
+  .accordion {
+    width: 100%;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: 0.5s;
+    border-radius: 8px !important;
+    border: 1px solid $primary-color;
+    box-shadow: 0 4px 6px rgba(99, 205, 218, 0.3);
+    margin-top: 0 !important;
+
+    &:nth-last-child(1) {
+      margin-bottom: 0;
+    }
+
+    .accordionSummary {
+      height: 70px !important;
+      transition: 0.5s;
+      padding: 10px 0 !important;
+      border-radius: 8px !important;
+      @include textStyle(18px, $black-color, 500, 30px);
+      padding-right: 15px !important;
+
+      &:hover {
+        background-color: #f1f9ff;
+      }
+
+      .title {
+        white-space: normal;
+        display: -webkit-box;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-clamp: 2;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        margin-right: 15px;
+        margin-left: 15px;
+        transition: 0.5s;
+        @include textStyle(20px, $black-color, bold, 26px);
+      }
+
+      .expandIcon {
+        width: 25px;
+        height: 14px;
+        transform: rotate(180deg);
+        transition: transform 0.3s ease;
+        [aria-expanded="true"] & {
+          transform: rotate(360deg);
+        }
+      }
+    }
+
+    .accordionDetails {
+      width: 100%;
+      @include textStyle(18px, $black-color, 500, 26px);
+      transition: 0.5s;
+
+      .list {
+        width: 100%;
+        min-height: 20px;
+
+        .listTitle {
+          margin-bottom: 20px;
+        }
+
+        .listBox {
+          width: 100%;
+          min-height: 20px;
+          list-style-position: inside;
+        }
+      }
+    }
+  }
+}
+
+.description {
+  margin-bottom: 10px;
+
+  &:nth-last-child(1) {
+    margin-bottom: 0;
+  }
+}
+
+/* <---------------------------------  Media  --------------------------------> */
+
+@media screen and (max-width: 1450px) {
+  .accordionBox {
+    width: 47%;
+  }
+}
+
+@media screen and (max-width: 1250px) {
+  .accordionBox {
+    .accordion {
+      .accordionSummary {
+        .title {
+          font-size: 18px;
+        }
+      }
+
+      .accordionDetails {
+        font-size: 16px;
+        line-height: 24px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .accordionBox {
+    width: 100%;
+  }
+}
