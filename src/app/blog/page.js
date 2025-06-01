@@ -2,8 +2,53 @@ import Link from "next/link";
 import styles from "./blog.module.scss";
 import HorizontalCarousel from "@/components/shared/horizontalCarousel/horizontalCarousel";
 import VerticalCarousel from "@/components/shared/verticalCarousel/verticalCarousel";
+import { config } from "@/config/env-config";
 
-export default function LikeButton() {
+export async function generateMetadata() {
+  const domain = config.domain;
+  const imageSource = `${domain}/images/link-covers/logo.webp`;
+  const title = "SIEL Marketing Blog | Insights, Tips, and Strategies for Digital Success";
+  const description = "Discover expert tips and strategies on digital marketing, SEO, branding, and more to help grow your business and stay ahead in the digital world.";
+
+  return {
+    metadataBase: new URL(domain),
+    title,
+    description,
+    openGraph: {
+      type: "website",
+      title,
+      description,
+      url: `${domain}/blog`,
+      siteName: "Siel Marketing",
+      images: [
+        {
+          url: imageSource,
+          width: 1200,
+          height: 630,
+          type: "image/webp",
+          alt: title,
+        },
+      ],
+      locale: 'en_US'
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      // site: '@SIELMarketing', 
+      images: [
+        {
+          url: imageSource,
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+    }
+  };
+}
+
+export default function Page() {
   return (
     <div className={styles.blogContainer}>
       <h1 className={styles.pageTitle}>Siel Blog</h1>

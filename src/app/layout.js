@@ -6,8 +6,25 @@ import { Lexend } from "next/font/google";
 const lexend = Lexend({ subsets: ["latin"], weight: ["variable"] });
 
 export const metadata = {
-  title: "Siel Marketing",
-  description: "Siel Marketing",
+  authors: [{ name: "SIEL Marketing Team", url: "https://sielmarketing.com" }],
+  creator: "SIEL Marketing",
+  robots: "index, follow",
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
+  keywords: [
+    "Digital Marketing",
+    "SEO",
+    "Branding",
+    "Web Development",
+    "Marketing Agency",
+    "Social Media Marketing",
+    "SIEL Marketing",
+    "Business Growth",
+    "Online Advertising",
+    "Marketing Strategy",
+  ],
 };
 
 export default function RootLayout({ children }) {

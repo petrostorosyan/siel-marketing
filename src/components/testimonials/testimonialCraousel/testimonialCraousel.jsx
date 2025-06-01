@@ -13,14 +13,22 @@ import { testimonialsData } from "@/services/testimonials/testimonialsData";
 const TestimonialCraousel = () => {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
-  const [isNavReady, setIsNavReady] = useState(false);
+  const [swiperInstance, setSwiperInstance] = useState(null);
 
   useEffect(() => {
-    setIsNavReady(true);
-  }, []);
+    if (swiperInstance && prevRef.current && nextRef.current) {
+      swiperInstance.params.navigation.prevEl = prevRef.current;
+      swiperInstance.params.navigation.nextEl = nextRef.current;
+
+      swiperInstance.navigation.destroy(); 
+      swiperInstance.navigation.init();    
+      swiperInstance.navigation.update(); 
+    }
+  }, [swiperInstance]);
 
   return (
     <div className={styles.carouselContainer}>
+
       <div className={styles.carouselRow}>
         <button ref={prevRef} className={`${styles.navButton} ${styles.prev}`}>
           <img
@@ -32,7 +40,7 @@ const TestimonialCraousel = () => {
           />
         </button>
 
-        {isNavReady && (
+       
           <Swiper
             modules={[Navigation]}
             loop={true}
@@ -42,11 +50,7 @@ const TestimonialCraousel = () => {
               prevEl: prevRef.current,
               nextEl: nextRef.current,
             }}
-            onBeforeInit={(swiper) => {
-              // backup init в случае чего
-              swiper.params.navigation.prevEl = prevRef.current;
-              swiper.params.navigation.nextEl = nextRef.current;
-            }}
+            onSwiper={setSwiperInstance}
           >
             {testimonialsData.map((item) => {
               return (
@@ -97,7 +101,7 @@ const TestimonialCraousel = () => {
               );
             })}
           </Swiper>
-        )}
+     
 
         <button ref={nextRef} className={`${styles.navButton} ${styles.next}`}>
           <Image

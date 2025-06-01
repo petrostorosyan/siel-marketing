@@ -19,7 +19,7 @@ const Navigation = () => {
 
     if (section) {
       const offsetTop = section.getBoundingClientRect().top + window.scrollY;
-      window.scrollTo({ top: offsetTop - 100, behavior: "smooth" });
+      window.scrollTo({ top: offsetTop - 50, behavior: "smooth" });
     } else {
       sessionStorage.setItem("scrollToId", id);
       router.push("/");
@@ -34,7 +34,7 @@ const Navigation = () => {
       if (el) {
         setTimeout(() => {
           const offsetTop = el.getBoundingClientRect().top + window.scrollY;
-          window.scrollTo({ top: offsetTop - 100, behavior: "smooth" });
+          window.scrollTo({ top: offsetTop - 50, behavior: "smooth" });
         }, 300);
       }
     }
